@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <form action="" id="form1">
+    <span>
+        <label>
+            <input type="checkbox" name="hyqk" value="擦伤" />擦伤</label></span>
+    <span>
+        <label>
+            <input type="checkbox" name="hyqk" value="Ⅰ" />Ⅰ</label>
+        <label>
+            <input type="checkbox" name="hyqk" value="Ⅱ" />Ⅱ</label>
+        <label>
+            <input type="checkbox" name="hyqk" value="Ⅲ" />Ⅲ</label></span>
+    <span>
+        <label>
+            <input type="checkbox" name="hyqk" value="正中切" />正中切</label>
+        <label>
+            <input type="checkbox" name="hyqk" value="侧切" />侧切</label></span>
+    <span>
+        <label>
+            <input type="checkbox" name="hyqk" value="宫颈裂伤"/>宫颈裂伤</label>
+        <label>
+            <input type="checkbox" name="hyqk" value="阴道壁裂伤" />阴道壁裂伤</label></span>
+            <ul>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="猝死" />猝死</label></li>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="出血" />出血</label></li>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="昏迷" />昏迷</label></li>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="窒息" />窒息</label></li>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="脑疝" />脑疝</label></li>
+                <li><label><input type="checkbox" name="bqbhfxpg" value="其他" />其他</label></li>
+            </ul>
+            
+        </form><button class="top">提交</button>
+</body>
+<script>
+    $(".top").click(function(e){
+        e.stopPropagation();
+        AjaxSubmit();
+    });
+     function AjaxSubmit() {
+        $.fn.ghostsf_serialize = function () {
+            var a = this.serializeArray();
+            var $radio = $('input[type=radio],input[type=checkbox]', this);
+            var temp = [];
+            $.each($radio, function () {
+                if (!temp.hasOwnProperty(this.name)) {
+                    if ($("input[name='" + this.name + "']:checked").length == 0) {
+                        temp[this.name] = "";
+                        a.push({ name: this.name, value: 0 });
+                    }
+                    else {
+                        temp[this.name] = "";
+                        a.push({ name: this.name, value: 1 });
+                    }
+                }
+            });
+            return jQuery.param(a);
+        };
+
+        var datas =  $("#form1").serialize();
+        datas1 = decodeURIComponent(datas,true);
+        console.log(datas1);
+    }
+</script>
+</html>

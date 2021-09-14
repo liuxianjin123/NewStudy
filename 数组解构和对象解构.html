@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  对象解构*/
+        let obj = { name: 1, age: 2 }
+        obj['nb'] = '他们都叫我牛逼'
+        // 使用解构语法
+        let { name, nb } = obj
+        console.log(name, nb, obj.nb);
+        /*数组解构*/
+        var arr = [1, '你要脸不?', 2, '妈的说啥呢'];
+        let [ni, , , le] = arr;
+        console.log(ni, le);
+        
+        !(function(){
+           console.log(dg);
+           let dg = 123; 
+           console.log(dg)
+        })()
+    </script>
+</body>
+
+</html>

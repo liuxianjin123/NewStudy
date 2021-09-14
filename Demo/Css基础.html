@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding-bottom: 200px;
+        perspective:2500px;
+    }
+    .titles{
+        margin-bottom: 10px;
+        padding: 15px;
+        line-height: 22px;
+        border-left: 5px solid #ffb800;
+        border-radius: 0 2px 2px 0;
+        background-color: #f2f2f2;
+    }
+    .DocumentModel{
+        border:10px solid #1e9fff;
+        padding:50px;
+        width: 500px;
+        box-sizing: border-box;/*即为元素在设置内边距和边框是在已经设定好的宽度和高度之内进行绘制*/
+    }
+    /*通用选择器
+    *{
+        border:1px solid red;
+    }*/
+    /*类选择器
+    .classSelect{
+        border:1px solid #000;
+    }*/
+    /*id选择器
+    #classSelect{
+        border:2px solid greenyellow;
+    }*/
+    /*元素选择器
+    div,p{
+        color:red;
+    }*/
+    /*后代选择器
+    .DocumentModel span{
+        color:yellow;
+    }*/
+    /*子代选择器
+    .DocumentModel>span{
+        color:purple;
+    }*/
+    /*hover
+    .pseudoClass button:hover{
+        background:green;
+        color:#fff;
+    }*/
+    /*active
+    .pseudoClass button:active{
+        background:red;
+        color:#fff;
+    }*/
+    /*foucs
+    .pseudoClass input:focus{
+        background:red;
+        color:#fff;
+    }*/
+    /*before
+    .pseudoElement button:before{
+       content: "我是之前被追加的内容";
+    }*/
+    /*after 
+    .pseudoElement button:after{
+       content: "我是之后被追加的内容";
+    }*/
+    /*first-child
+    .advancedSelect p:first-child{
+        background:red;
+        color:#fff;
+    }*/
+    /*last-child
+    .advancedSelect p:last-child{
+        background:green;
+        color:#fff;
+    }*/
+    /*nth-child(n)
+    .advancedSelect p:nth-child(2){
+        background:yellowgreen;
+        color:#fff;
+    }*/
+    /*nth-child(n+)
+    .advancedSelect p:nth-child(n+5){
+        background:yellowgreen;
+        color:#fff;
+    }*/
+    /*nth-child(-n)
+    .advancedSelect p:nth-child(-n+5){
+        background:red;
+        color:#fff;
+    }*/
+    /*not()
+    .advancedSelect p:not(.nots){
+        background:#ddd;
+        color:#fff;
+    }*/
+    /*disabled 
+    .advancedSelect p input:disabled{
+        background:#000;
+        color:#fff;
+    }*/
+    /*checked 
+    .advancedSelect p input:checked{
+        background:#000;
+        color:#fff;
+        width: 20px;
+        height: 20px;
+    }*/
+    /*字体
+    .fonts>p{
+        font: normal bold 40px/40px '宋体';
+        /*font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 40px;
+        font-family: '宋体';
+    } */
+     /*text-indent 
+    .retract p:nth-child(n+2){
+        /*text-indent: 30px;
+        text-indent: 2em;
+    }*/
+    /*letter-spacing
+    .letterSpacing P{
+        letter-spacing: 20px;
+    }*/
+    /*text-shadow
+    .textShadow{
+        font-size: 40px;
+        font-weight: 900;
+        text-shadow:10px 10px 4px #000000a1;
+    }*/
+    /*linear-gradient
+    .linearGradient{
+        height: 200px;
+        border-radius: 10px;
+        background: linear-gradient(to top,#FFB800,#FF5722,#01AAED);
+                                /*起始角度||20deg，颜色1，颜色2，颜色3
+    }*/
+    /*backgroundImage 
+    .backgroundImage{
+        border:1px solid #000;
+        height: 500px;
+        background: url(img/timg.jpg) #fff no-repeat;
+        background-position: 0px;
+        background-size: cover;
+        /*background-attachment:fixed
+    }*/
+    /*border-radius 
+    .borderRadius{
+        border:3px solid #1e9fff;
+        height: 80px;
+        width: 250px;
+        border-radius: 20px;
+        border-radius:0 20px 0 20px;
+    }*/
+    /*.box-shadow
+    .boxShadow{
+        height: 250px;
+        width: 250px;
+        background:palegreen;
+        box-shadow:10px 10px 20px 2px #000;/*水平 垂直 模糊距离 阴影尺寸 颜色inset可以将外部的(outset)改为
+    }*/
+    /*float
+    .floats{
+        height: 200px;
+        border:1px solid red;
+    }
+    .floats p{
+        border:1px solid red;
+    }
+    .floats p:first-child{
+        float: left;
+    }
+    .floats p:first-child{
+        float: right;
+    }*/
+    /*position
+    .positions{
+        position: relative;
+        height: 50px;
+    }
+    .positions p:first-child{
+        position: absolute;
+        top:10px;
+    }
+    .positions p:last-child{
+        position: fixed;
+        right: 50px;
+        top:50px;
+    }*/
+    /*display&visibility
+    .displays p:first-child{
+        display: none;
+    }
+    .displays p:last-child{
+        visibility:hidden;
+    }*/
+    /*verticals
+    .verticals *{
+        vertical-align: middle;/*将元素盒子的垂直中点与父盒子的baseline加上父盒子的x-height的一半位置对齐,这个x-height就是文本的高度
+    }*/
+    /*overflow
+    .overflows{
+        height: 60px;
+        width: 550px;
+        border:1px solid #1e9fff;
+        overflow: hidden;
+        /* overflow:scroll;
+        overflow:auto;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis; 
+    }*/
+    /*calc
+    .calcs{
+        background:greenyellow;
+        padding:20px 0;
+    }
+    .calcs p{
+        width:calc(100% - 50px);
+        background:#1e9fff;
+    }*/
+    /*transition&transform
+    .transitions{
+        transition: all 1.9s ease-out;
+        width: 200px;
+        height: 200px;
+        background:#1e9fff;
+        margin:0 auto;
+        text-align: center;
+        line-height: 200px;
+    }
+    .transitions:hover{
+        border-radius: 50%;
+        transform: scale(1.5) translateX(400px) skewX(20deg) rotate(760deg);
+    }*/
+    /*animations    
+    .animations{
+        width: 500px;
+        height: 200px;
+        animation:identifier 2s linear infinite ;
+    }
+    @keyframes identifier {
+        0%{
+            background:chartreuse;
+            transform: translate(150px,0);
+        }
+        25%{
+            background:grey;
+            transform: translate(150px,50px);
+        }
+        50%{
+            background:red;
+            transform: translate(0px,50px);
+        }
+        75%{
+            background:darkcyan;
+            transform: translate(0px);
+        }
+        100%{
+            background:hotpink;
+            transform: translate(150px,0);
+        }
+    }*/
+    /*立体三角
+    .sj{
+        position: relative;
+        width: 200px;
+        height: 500px;
+        margin-top:150px;
+        transform-style:preserve-3d;
+        margin:0 auto;
+        transition: all 5s;
+        transform: rotatey(59deg);
+        transform-origin: center;
+        cursor: pointer;
+    }
+    .sj:hover{
+        transform: rotatey(720deg) ;
+    }
+    .sj p{
+        width: 200px;
+        height: 500px;
+        background:#FFB800;
+        position: absolute;
+        top:0;
+        left:0;
+        line-height: 500px;
+        text-align: center;
+        font-size: 100px;
+        color: #fff;
+    }
+    .sj p:first-child{
+        transform: rotateY(60deg) translateZ(58px);
+    }
+    .sj p:nth-child(2){
+        background:#1e9fff;
+        transform:rotateY(120deg) translateZ(-58px);
+    }
+    .sj p:last-child{
+        background:#009688;
+        transform: rotateY(180deg) translateZ(58px);
+    } */
+</style>
+<body>
+    <p class="titles">文档模型</p>
+    <div class="DocumentModel">
+        <div>
+            <span>演示的是子代选择器</span>
+        </div>
+        <span class="classSelect" id="classSelect">2、弹出Word选项对话框中，选中“校对”，把“在word 中更正拼写和语法时”下边的如图所示的选项中去掉复选框中的对勾即可，如图所示。</span>
+    </div>
+    
+    <p  class="titles">伪类选择器</p>
+    
+    <div class="pseudoClass">
+        <button type="button">提交</button>
+        <button type="button">删除</button>
+        <input type="text"/>
+    </div>
+    <p  class="titles">伪元素</p>
+    
+    <div class="pseudoElement">
+        <button type="button">提交</button>
+        <button type="button">删除</button>
+    </div>
+    <p  class="titles">常用高级选择器</p>
+    <div class="advancedSelect">
+        <p>1.常用高级选择器</p>
+        <p>2.常用高级选择器</p>
+        <p>3.常用高级选择器</p>
+        <p>4.常用高级选择器</p>
+        <p>5.常用高级选择器</p>
+        <p>6.常用高级选择器</p>
+        <p class="nots">7.常用高级选择器</p>
+        <p>8.常用高级选择器</p>
+        <p>9.常用高级选择器</p>
+        <p>演示disabled <input type="text" disabled=''></p>
+        <p>checked <input type="checkbox" checked=''></p>
+    </div>
+    <p class="titles">字体</p>
+    
+    <div class="fonts">
+        <p>演示字体的用法</p>
+    </div>
+    <p class="titles">首行缩进</p>
+    
+    <div class="retract">
+        <p>演示字体的用法</p>
+        <p>演示字体的用法</p>
+        <p>演示字体的用法</p>
+        <p>演示字体的用法</p>
+        <p>演示字体的用法</p>
+        <p>演示字体的用法</p>
+    </div>
+    <p class="titles">9.字间距和单词间距</p>
+    
+    <div class="letterSpacing">
+        <p>演示字体的用法</p>
+        <p>ASKDJASDJASLDKASJD </p>
+    </div>
+    <p class="titles">Css分页符</p><!--page-break-after 应用于 position 值为 relative 或 static 的非浮动块级元素。-->
+    <div class="pageBreakAfter">
+        <p style="page-break-after:always;">第 1 页</p>
+        <p style="page-break-after:always;">第 2 页</p>
+        <p style="page-break-after:always;">第 3 页</p>
+    </div>
+    <p class="titles">文本阴影</p>
+    <div class="textShadow">
+        演示字体的用法
+    </div>
+    <p class="titles">渐变色</p>
+    <div class="linearGradient">
+        
+    </div>
+    <p class="titles">背景图片</p>
+    
+    <div class="backgroundImage">
+        
+    </div>
+    <p class="titles">圆角边框(css3)</p>
+    
+    <div class="borderRadius">
+        圆角边框
+    </div>
+    <p class="titles">盒子阴影</p>
+    
+    <div class="boxShadow">
+        盒子阴影
+    </div>
+    <p class="titles">浮动</p>
+    
+    <div class="floats">
+        <p>我要向左浮动</p>
+        <p>我要向右浮动</p>
+    </div>
+    <p class="titles">定位</p>
+    
+    <div class="positions">
+        <p>我表示绝对定位</p>
+        <p>我表示固定定位</p>
+    </div>
+    <p class="titles">显示与隐藏</p>
+    
+    <div class="displays">
+        <p>我是display:none</p>
+        <p>我是visibility:visible;</p>
+    </div>
+    <p class="titles">vertical-align</p>
+    
+    <div class="verticals">
+        <a href="">我是a标记</a>
+        <span>我是span</span>
+        <label for=""><input type="checkbox" style="width: 30px;height: 30px;">我是复选框</label>
+        <img src="img/3.gif" alt="" style="width: 30px;height: 30px;">
+    </div>
+    <p class="titles">溢出</p>
+    
+    <div class="overflows">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, modi eveniet. Quasi eius molestiae voluptate beatae veniam modi temporibus repellat pariatur delectus accusamus officiis nam enim aspernatur tempora, suscipit impedit!
+    </div>
+    <p class="titles">鼠标样式</p>
+    
+    <div class="cursors">
+        <p ><button style="cursor:default;">鼠标样式：默认</button></p>
+        <p><button  style="cursor: pointer;">鼠标样式：手</button></p>
+        <p ><button style="cursor: move;">鼠标样式：移动</button></p>
+        <p ><button style="cursor: text;">鼠标样式：输入</button></p>
+        <p ><button style="cursor:not-allowed;">鼠标样式：禁止</button></p>
+    </div>
+    <p class="titles">calc函数</p>
+    
+    <div class="calcs">
+        <p>我是P元素，我的宽度始终是我的父元素宽度的100% - 50px</p>
+    </div>
+    <p class="titles">过渡</p>
+    
+    <div class="transitions">
+        鼠标放上来我就放大
+    </div>
+    <p class="titles">动画</p>
+    
+    <div class="animations">
+        
+    </div>
+    <div class="sj">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+</body>
+</html>

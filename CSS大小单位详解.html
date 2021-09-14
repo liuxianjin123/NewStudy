@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        font:normal normal 1em/normal "微软雅黑";
+    }
+    #datalist {
+        border-collapse: collapse;
+    }
+    #datalist td{
+        border:1px solid red;
+        
+    }
+</style>
+<body>
+    <div class="content" id="PrintHead">
+        <div class="title" style="style="height:30px">
+            <h1 style="font-size: 30px; font-family: '宋体', 'Microsoft YaHei', Helvetica, sans-serif; font-weight: initial; text-align: center;"><%=company %>重症医学科护理记录单(一)</h1>
+        </div>
+        <div class="user_msg">
+            <label >日期：<input type="text" id="rq"style="width:110px" name="rq" value="<%=Request["rq"]%>"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></label>
+            <label >床号：<input name="cwh" id="cwh" value="<%=Request["cw"]%>"  style="width: 150px" /></label>
+            <label >姓名：<input name="xm" id="xm" value="<%=brxx.xm %>" style="width: 80px" /></label>
+            <label >性别：<input name="xb" id="xb" value="<%=brxx.xb %>" style="width: 30px" /></label>
+            <label >年龄：<input name="nl" id="nl" value="<%=brxx.nl %>" style="width: 50px" /></label>
+            <label >住院号：<input name="nl" id="zyh" value="<%=brxx.tmh %>" style="width: 100px" /></label>
+            <label>科别:<input name="kb" id="kb"  style="width: 150px" value="<%=brxx.ksmc%>" /></label>
+            <label style="display:none">转入科室：<input name="zrks" id="zrks" value="`+ data[data.length - 1]["zrks"] + `"  style="width: 150px"  /></label>
+        </div>
+        <div style="padding:3px;"> 
+            <label style="width:100%;"><span>诊断：</span><input name="zd" id="zd" value="`+ data[data.length - 1]["brzd"] +`"   style="width: calc(100% - 45px)" /></label>
+        </div>
+        <div class="table-Box" style="height:567px;border:1px solid red;">
+            <table cellspacing='0' cellpadding='0' style='width:100%; ' id="datalist" >
+                <tr>
+                   <td rowspan="4"style='width:85px;' class='addC'>时间</td>
+                   <td colspan="9">生命体征</td>
+                   <td rowspan="4" style="width:30px" class='addC'>意识<br/>状态</td>
+                   <td colspan="4">瞳孔</td>
+                   <td colspan="3">GCS</td>
+                   <td colspan="5">置管深度(cm)</td>
+                   <td colspan="10">呼吸支持</td>
+                   <td rowspan="4" style="width: 25px" class='addC'>R<br />A<br />S<br />S</td>
+                   <td rowspan="4" style="width: 25px" class='addC'>疼<br />痛<br />评<br />分</td>
+                   <td colspan="4">评分</td>
+                   <td colspan="13">出量</td>
+                   <td rowspan="4" class='addC'>体<br/>位<br/>1</td>
+                   <td rowspan="4" class='addC'>体<br/>位<br/>2</td>
+                    <td rowspan="4" class='addC' style="width:60px;height:30px;">签名</td>
+                </tr>
+                <tr>
+                   <td rowspan="2">体<br/>温</td>
+                   <td rowspan="2">心率</td>
+                   <td rowspan="2">脉搏</td>
+                   <td rowspan="2">呼吸</td>
+                   <td rowspan="3">心<br/>律</td>
+                   <td rowspan="2">SPO<sub>2</sub></td>
+                   <td rowspan="2">NBP</td>
+                   <td rowspan="2">ABP</td>
+                   <td rowspan="2">CVP</td>
+                   <td rowspan="2" colspan="2">大小<br/>mm</td>
+                   <td rowspan="2" colspan="2" sytyle="width:10px">光<br/>反<br/>射</td>
+                   <td rowspan="3" >睁眼</td>
+                   <td rowspan="3">言语</td>
+                   <td rowspan="3">运动</td>
+                   <td rowspan="3">C<br/>V<br/>C</td>
+                   <td rowspan="3">气<br/>管<br/>插<br/>管</td>
+                   <td rowspan="2">气<br/>囊<br/>压<br/>力</td>
+                   <td rowspan="3">胃<br/>管</td>
+                   <td rowspan="3"><%=Request["qtcgmc"]%></td>
+                   <td rowspan="3"><%=Request["qtcg1"]%></td>
+                   <td rowspan="3">模<br/>式</td>
+                   <td rowspan="2" style="width:30px;">频率</td>
+                   <td rowspan="2">VT</td>
+                   <td rowspan="2">PI</td>
+                   <td rowspan="2">PS</td>
+                   <td rowspan="2">P<br/>E<br/>E<br/>P</td>
+                   <td rowspan="2">I<br/>P<br/>A<br/>P</td>
+                   <td rowspan="2">E<br/>P<br/>A<br/>P</td>
+                   <td rowspan="2">F<br/>I<br/>0<br/>2</td>
+                   <td rowspan="3" style="width: 25px" class='addC'>压<br />疮<br />风<br />险</td>
+                   <td rowspan="3" style="width: 25px" class='addC'>深<br />静<br />脉<br />血<br />栓<br /></td>
+                   <td rowspan="3" style="width: 25px" class='addC'>跌<br />倒<br />坠<br />床</td>
+                   <td rowspan="3" style="width: 25px" class='addC'>管<br />道<br />风<br />险</td>
+                   <td rowspan="2" colspan="2">吸<br/>痰</td>
+                   <td rowspan="2">大<br/>便</td>
+                   <td rowspan="2">灌<br/>肠</td>
+                   <td rowspan="2"  colspan="2">小<br/>便</td>
+                   <td rowspan="2">超<br/>滤</td>
+                   <td colspan="4">引流</td>
+                    <td colspan="2"><%=Request["ylother"]%></td>
+               </tr>
+                <tr >
+                   <td colspan="2">引流管</td>
+                   <td colspan="2">ml</td>
+                   <td>冲入</td>
+                   <td>引流</td>
+                </tr>
+                 <tr class='addC addCt'>
+                    <td>℃</td>
+                    <td colspan="3" >次/分</td>
+                    <td>%</td>
+                    <td colspan="2" style="">mmHg</td>
+                    <td style="font-size:12px">cmH<sub>2</sub>o</td>
+                    <td>左</td>
+                    <td>右</td>
+                    <td>左</td>
+                    <td>右</td>
+                    <td>cmH20</td>
+                    <td >次/分</td>
+                    <td >ml</td>
+                    <td colspan="5">cmH20</td>
+                    <td>%</td>
+                    <td>次</td>
+                    <td>ml</td>
+                    <td style="">g</td>
+                    <td style="">次</td>
+                    <td style="">ml</td>
+                    <td style="">备注</td>
+                    <td colspan="7" style="">ml</td>
+                </tr>
+            </table>
+        </div>
+        <div class="qmhide" style='margin-top: 10px;text-align:center;'>第 `+ pg + ` 页/共  </div>
+    </div>
+</body>
+</html>

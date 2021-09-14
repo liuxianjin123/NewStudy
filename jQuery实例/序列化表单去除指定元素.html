@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <form name="form1">
+		<input type="text" name="page1" class="flau_u_ro"></input>
+		<input type="text" name="pageno" ></input>
+        <input type="text" name="pagename" value=""></input>
+        <div>
+            <input type="text" name="age" >
+        </div>
+        <input type="checkbox" name="isok" value="我">
+        <input type="checkbox" name="isok" value="是">
+        <input type="checkbox" name="isok" value="刘">
+        <input type="checkbox" name="isok" value="先">
+        <input type="checkbox" name="isok" value="近">
+		<select name='pageflag'>
+			<option value='1'>是</option>
+			<option value='0'>否</option>
+		</select>
+	</form>
+<script>
+    $("body").dblclick(function(){
+        var datas =  $("form[name='form1']").not($('input[type="hidden"]')).serialize(); 
+        var f = datas.split("&");
+        var obj =[];
+        for(var d of f){
+            var r = d.substring(0,d.indexOf("="));
+            var keys =decodeURIComponent(d.substring(d.indexOf("=")+1,d.length));
+            obj.push([r,keys])
+        }
+        for (let index = 0; index < obj.length; index++) {
+            console.log(obj[index][0],obj[index][1]);
+        }
+    });
+    
+</script>
+</html>

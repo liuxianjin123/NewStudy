@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    p{
+        width: 500px;
+        height:150px;
+        border:1px solid red;
+        text-overflow: ellipsis;
+    }
+</style>
+<body>
+    <button>Click Me</button>
+    <div class="d">
+        <section>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p class="ioto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+        </div>
+        <span style="width:300px;height:50px;border:1px solid red;display: block;margin: 200px;">
+            暗室逢灯开会就爱了肯德基阿拉斯加
+        </span>
+    </section>
+    </div>
+</body>
+<script>
+    $("p").one("click",function(){//本次页面加载规定当前点击元素只执行一次指定的函数。
+        $(this).animate({'width':"+=260px"},3000);
+    });
+    $("span").each(function () {
+        $(this).css({"font-size":"30px"});//首先设置一个字体大小
+        var fontw = 30;//这是假设的文文本字体大小的变量
+        console.log(this.scrollHeight);//这个是如果按照上面的字体大小设置30的px的话，span容器将会被撑开(实际没有视觉撑开，因为并没有多溢出做相应的处理)出现多高的滚动区域。这里的实际高度是80px;
+        console.log($(this).height() + 5);//这里就是获取span元素初始设立的高度，上面是50px；
+        while (this.scrollHeight > $(this).height() && fontw > 2) {//这里验证循环缩小上面定义的变量。直到满足条件，也就是字体不溢出高度刚好等于容器的高度。
+            fontw = fontw - 1;
+            this.style.fontSize = fontw + "px";//这里的赋值。
+        }
+    })
+    function getData(){
+        $.ajax({
+            url: "https://api.apiopen.top/musicBroadcastingDetails?channelname=public_tuijian_spring",
+            type: 'post',
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+                alert("加载失败");
+            }
+        });
+    }
+    getData();
+</script>
+</html>

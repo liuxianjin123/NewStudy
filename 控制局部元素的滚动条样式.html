@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        border-radius: 5px;
+    }
+
+    .box {
+        height: 700px;
+        border: 4px solid #000;
+        overflow: auto;
+    }
+
+    .items1,
+    .items2 {
+        height: 400px;
+        border: 4px solid forestgreen;
+        overflow: auto;
+    }
+
+    .box::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 10px;
+        /*高宽分别对应横竖滚动条的尺寸*/
+        background: #ffffff;
+    }
+
+    .box::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background: red;
+    }
+
+    .items1::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 10px;
+        /*高宽分别对应横竖滚动条的尺寸*/
+        background: #ffffff;
+    }
+
+    .items1::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background: #000;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="items1">
+            <p style="height: 600px;line-height: 600px;font-size: 100px;">(づ￣3￣)づ╭❤～</p>
+        </div>
+        <div class="items2">
+            <p style="height: 600px;line-height: 600px;font-size: 100px;">(づ￣3￣)づ╭❤～</p>
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    *{
+        padding:0;
+        margin: 0;
+    }
+    html,body,.box{
+        height:100%;
+    }
+    .box div{
+        width:100%;
+        height:100%; 
+        text-align: center;
+        line-height: 900px;
+        color:#fff;
+        font-size: 150px;
+        font-weight: 900;
+    }
+</style>
+<body id="full-page">
+    <div class="box" id="fullpage">
+        <div style="background: red;">1</div>
+        <div style="background: green;">2</div>
+        <div style="background: blue;">3</div>
+        <div style="background: purple;">4</div>
+        <div style="background: cadetblue;">5</div>
+        <div style="background: aqua;">6</div>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+(function(){
+	var oDiv = document.getElementById('fullpage');
+ 
+	function onMouseWheel(ev) {/*当鼠标滚轮事件发生时，执行一些操作*/
+		var ev = ev || window.event;
+		var down = true; // 定义一个标志，当滚轮向下滚时，执行一些操作
+			down = ev.wheelDelta?ev.wheelDelta<0:ev.detail>0;
+		if(doScroll){
+			if(down){
+			if(page_index!=6){
+				doScroll = false;
+				page_index++;
+				$('#full-page').animate({top:-page_index*screen_height},speed,function() {
+                doScroll = true;
+            });
+			}
+			}else{
+				if(page_index!=0){
+					doScroll = false;
+					page_index--;
+					$('#full-page').animate({top:-page_index*screen_height},speed,function() {
+                doScroll = true;
+            });
+				}
+			}
+			if(ev.preventDefault){/*FF 和 Chrome*/
+				ev.preventDefault();// 阻止默认事件
+			}
+		}
+		
+		return false;
+	}
+	addEventListener(oDiv,'mousewheel',onMouseWheel);
+	addEventListener(oDiv,'DOMMouseScroll',onMouseWheel);
+ 
+})();
+</script>
+</html>

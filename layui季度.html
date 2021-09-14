@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="laydate/laydate.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <input type="text" class="demo-input" placeholder="请选择季度" id="test1" />
+    <input type="text" class="demo-input" placeholder="请选择季度" id="kssj" />
+    <input type="text" class="demo-input" placeholder="请选择季度" id="jssj" />
+    <script>
+      //季节选择
+      //renderSeasonDate("#test1", "#kssj", "#jssj");
+
+      /**
+       * 季度初始化
+       * @param ohd 季度input dom对象非jquery对象
+       *
+       */
+       laydate.render({
+                elem: '#test1'
+                , type: 'month'
+                , range: true
+            });
+      function renderSeasonDate(ohd, kssj, jssj) {
+        var ele = $(ohd);
+        laydate.render({
+          elem: ohd,
+          type: "month",
+          format: "yyyy年M季度",
+          range: null,
+          min: "1900-1-1",
+          max: "2099-12-31",
+          btns: ["clear", "confirm"],
+          ready: function (value, date, endDate) {
+            var hd = $("#layui-laydate" + ele.attr("lay-key"));
+            if (hd.length > 0) {
+              hd.click(function () {
+                ren($(this));
+              });
+            }
+            ren(hd);
+          },
+          done: function (value, date, endDate) {
+            console.log(value);
+            console.log(date);
+            if (!isNull(date) && date.month > 0 && date.month < 5) {
+              var newArr = [];
+              switch (date.month) {
+                case 1:
+                  newArr.push("01-01 00:00:00");
+                  newArr.push("03-31 00:00:00");
+                  break;
+                case 2:
+                  newArr.push("04-01 00:00:00");
+                  newArr.push("06-30 00:00:00");
+                  break;
+                case 3:
+                  newArr.push("07-01 00:00:00");
+                  newArr.push("09-30 00:00:00");
+                  break;
+                case 4:
+                  newArr.push("10-01 00:00:00");
+                  newArr.push("12-31 00:00:00");
+                  break;
+              }
+              console.log(newArr[1], date);
+              $(jssj).val(date.year + "-" + newArr[1]);
+              $(kssj).val(date.year + "-" + newArr[0]);
+            }
+          },
+        });
+        var ren = function (thiz) {
+          var mls = thiz.find(".laydate-month-list");
+          mls.each(function (i, e) {
+            $(this)
+              .find("li")
+              .each(function (inx, ele) {
+                var cx = ele.innerHTML;
+                if (inx < 4) {
+                  ele.innerHTML = cx.replace(/月/g, "季度");
+                } else {
+                  ele.style.display = "none";
+                }
+              });
+          });
+        };
+      }
+      function isNull(s) {
+        if (s == null || typeof s == "undefined" || s == "") return true;
+        return false;
+      }
+    </script>
+    <script>
+      let columns1 = [
+        {
+          title: "Name",
+          dataIndex: "name",
+          key: "name",
+          children: [
+            {
+              title: "Age",
+              dataIndex: "age",
+              key: "age1",
+              width: 80,
+              children: [
+                {
+                  title: "Age",
+                  dataIndex: "age",
+                  key: "age1",
+                  width: 80,
+                },
+                {
+                  title: "Age",
+                  dataIndex: "age",
+                  key: "age2",
+                  width: 80,
+                },
+              ],
+            },
+            {
+              title: "Age",
+              dataIndex: "age",
+              key: "age2",
+              width: 80,
+            },
+          ],
+        },
+        {
+          title: "Age",
+          dataIndex: "age",
+          key: "age",
+          width: 80,
+        },
+      ];
+
+      function sum(columns1) {
+        var ff=columns1.map(x=>{
+          if(x.children){
+            x.titlekkk =x.title;
+            delete x.title;
+            sum(x.children)
+          }else{
+            x.titlekkk = x.title;
+            delete x.title;
+          }
+        })
+      }
+      sum(columns1)
+      console.log(columns1);
+    </script>
+  </body>
+</html>

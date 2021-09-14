@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur </p>
+</body>
+<script>
+    let  name = '刘先近',age='25岁';
+    let objs = {name,age,sky(qw){console.log(qw)}};//Es6申明对象
+    var obj2 = {height:'165cm',wight:'100kg'};
+    console.log(objs);
+    console.log(objs.sky(12121));
+    console.log(Object.is(name,age))//哦判断恒等
+    console.log(Object.assign(objs,obj2))//将后者对象复制到前者对象。
+    console.log(objs);
+    function prints(){};
+    prints.prototype = {
+        sky(){
+            window.print();
+        },
+        nb:function(){
+            alert('my name is NB')
+        }
+    }
+    var lan = new prints();
+    document.body.onclick = function(){
+        lan.sky();
+    }
+    console.log(Object.getPrototypeOf(lan))//获取构造函数内的所有定义的方法；
+    Object.setPrototypeOf(//修改构造函数内的定义的方法
+        lan,{
+            sky(){
+                window.location.reload();
+            }
+        }
+    );
+    function Dog(name){
+        this.name =name;
+    }
+    Dog.prototype={
+        sky(){
+            console.log("you jump , I "+this.name);
+        }
+    }
+    var kg = new Dog('jump');
+    kg.sky()
+</script>
+</html>

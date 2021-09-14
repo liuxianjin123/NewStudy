@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <h1>v-component（组件）</h1>
+    <hr>
+    <div id="app">
+        <component :is="who"></component><!--组件标签根据who决定来动态加载不同的已经申明的组件。 -->  
+        <button @click="qhzj">切换组件</button>
+    </div>
+    <div id="app2">
+        <cf></cf>
+    </div>
+</body>
+<script>
+    var componentA = {
+        template:`<h1>我是局部组件A</h1>`
+    }
+    var componentB = {
+        template:`<h1>我是局部组件B</h1>`
+    }
+    var componentC = {
+        template:`<h1>我是局部组件C</h1>`
+    }
+    Vue.component('liuxianjin',{//component区分大小写,这是定义全局组件的方法,组件的命名不能是驼峰写法，
+       template:`<h1>我是当前页面定义的全局组件</h1>`
+    });
+    Vue.component('cf',{
+        template:`<h1>我是局部组件Bcvcccc</h1>`,
+    });//申明一个全局组件先
+   var app = new Vue({//构造器1
+       el:'#app',
+       data:{
+            who:'cB',
+       },
+       components:{//定义局部组件，可定义多个局部组件
+           cA:componentA,
+           cB:componentB,
+           cC:componentC,
+       },
+       methods:{
+        qhzj(){
+            switch(this.who){
+                case "cA":
+                    this.who='cB';
+                    break;
+                case "cB":
+                    this.who='cC';
+                    break;
+                case "cC":
+                    this.who='cA';
+                    break;
+            }
+        }
+       }
+   });
+   var app2 = new Vue({
+       el:'#app2'
+   });
+ 
+</script>
+</html>  

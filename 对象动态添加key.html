@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <input id="designComboBox" list="designComboBox1" size="20" />
+        <datalist id="designComboBox1" size="20" style="height:200px !important;overflow: auto !important;">
+            <option value="BMW">
+            <option value="Ford">
+            <option value="Volvo">
+            <option value="Volvo">
+        </datalist>
+    <input id="myCar" list="cars" />
+        <datalist id="cars">
+           
+        </datalist>
+</body>
+<script>
+    $("#myCar").focus(function(){
+        var html = ` <option value="BMW">
+            <option value="Ford">
+            <option value="Volvo">`;
+            $("#cars").html(html);
+    });
+var obj = {};
+    for(var f = 0;f<40;f++){
+        obj[""+f+""]=f+1+"个";
+    }
+    console.log(obj);
+    var h = "designCheckBox6;designCheckBox2;";
+var obj1 = h.split(";")
+console.log(obj1);
+for(var o in obj1){
+    if(obj1[o]==""){
+        obj1[o].delete;
+    }
+}
+function GetDateTime() {
+    var d, s;
+    d = new Date();
+    s = d.getFullYear() + "-";             //取年份
+    s = s + ((d.getMonth() + 1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1)) + "-";//取月份
+    s += (d.getDate() < 10 ? "0" + d.getDate() : d.getDate()) + " ";         //取日期
+    s += (d.getHours() < 10 ? "0" + d.getHours() : d.getHours()) + ":";       //取小时
+    s += (d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes()) + ":";    //取分
+    s += (d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds())+ " ";
+    return (s);
+}
+console.log(GetDateTime());
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style lang="">
+    
+    body{
+        height: 5000px;
+        border-left:10px solid red;
+    }
+    p{
+        height: 650px;
+        width:500px;
+        font-size: 50px;
+        overflow: auto;
+    }
+    ::-webkit-scrollbar { /*滚动条整体样式*/
+        width: 10px !important;; /*高宽分别对应横竖滚动条的尺寸*/
+        background: #ffffff !important;;
+        transition: all .3s;;
+    }
+    
+    ::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+        transition: all .3s;;
+        border-radius: 0px !important;
+        background: rgba(63, 98, 131, 0.8) !important;;
+    }
+
+    ::-webkit-scrollbar-track { /*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(10, 8, 8, 0.5) !important;;
+        background: #fff !important;;
+        transition: all .3s;;
+    }
+</style>
+<body >
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptatem dolorum quasi nesciunt dolores corporis modi quidem. Quod soluta possimus, rem eaque pariatur animi molestiae quisquam aut, magni, recusandae amet!</p>
+</body>
+</html>

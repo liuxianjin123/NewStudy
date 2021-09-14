@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        /* 此样式仅用于浏览器页面效果，Excel不会分离表格边框，不需要此样式 */
+        table {
+            border-collapse: collapse;
+        }
+        table tr,td,th{
+
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置border="1"以显示表格框线 -->
+    <table border="1" class="table2excel">
+        <!-- caption元素可以生成表标题，其单元格列跨度为表格的列数 -->
+        <tr>
+                <th colspan="8">密码呢光棍节阿萨德科技科技奥斯卡来得及卡拉时间到了</td>
+        </tr>
+        <tr>
+            <!-- 可以使用rowspan和colspan来合并单元格 -->
+            <th rowspan="2">编号</th>
+            <th rowspan="2">学号</th>
+            <th rowspan="2">姓名</th>
+            <th rowspan="2">性别</th>
+            <th rowspan="2">年龄</th>
+            <th colspan="3">成绩</th>
+        </tr>
+        <tr>
+            <th>语文</th>
+            <th>数学</th>
+            <th>英语</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2016001</td>
+            <td>张三</td>
+            <td>男</td>
+            <td>13</td>
+            <td>85</td>
+            <td>94</td>
+            <td>77</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2016002</td>
+            <td>李四</td>
+            <td>女</td>
+            <td>12</td>
+            <td>96</td>
+            <td>84</td>
+            <td>89</td>
+        </tr>
+    </table>
+
+    <a id="btn">导出表格</a>
+
+   
+    <script src="js/tableExcel.js"></script>    
+    <script>    
+  
+            window.onload = function(){
+                document.querySelector(".table2excel").table2excel({    
+                    exclude: ".noExl", //不被导出的tr的class。   
+                    name: "敏感指标",    
+                    filename: fileName,    
+                    exclude_img: true,    
+                    exclude_links: true,    
+                    exclude_inputs: true    
+                });     
+            }
+                     
+    </script> 
+</body>
+</html>

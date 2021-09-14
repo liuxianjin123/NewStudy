@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const a = 10;//变量
+    let b = 15;//常量
+    console.log(a);
+    console.log(b);
+    (function(){//匿名函数自调
+        console.log(b*b);
+        console.log(a*a);
+    })();
+    const e= "hellow";
+    console.log(e.repeat(4))//将原始string重复4次。
+    for(var f of e){//遍历字符串请使用for of...
+        console.log(f)
+    }
+    const {toString : s} = 123;//字符串解构
+//字符串
+    console.log(s);
+    let str = "我就是一个大傻子。";
+    console.log(str.includes("傻子"));//返回true或者false
+    console.log(str.indexOf("傻子"));//返回第一个匹配的下标。
+    console.log(str.startsWith("我就是"));//匹配开始
+    console.log(str.endsWith("傻子。"));//匹配结束。
+//数字
+    var inta = "asdsd:1023.52314";
+    inta = inta.substring(inta.indexOf(":")+1);
+    console.log(inta);
+    console.log(parseInt(inta));//转换为数字并取整
+    console.log(parseFloat(inta).toFixed(2));//转换为小数。
+    console.log(isNaN(inta));
+    console.log(Math.imul(20,20));
+    console.log(Math.tanh(20));
+//数组
+    var arr = [1,2,3,4,5,6,7,8,9];
+    var arr2 = [...arr];
+    console.log(arr2);
+    var arr1 = [10,11,12,13,14,15,16];
+    console.log(arr.push(...arr1));
+    console.log([..."arr2"])
+</script>
+</html>

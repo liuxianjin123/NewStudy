@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+     var dm =decodeURIComponent(location.search);
+     console.log(dm)
+     var f =  dm.substring(dm.indexOf("=") + 1, dm.length);
+     $("li").html(JOSN.stringify(f));
+</script>
+</html>

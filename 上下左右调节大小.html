@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        display: flex;
+        height:600px;
+        width: 1200px;
+        margin: 10px auto;
+        user-select: none;
+    }
+    ul{
+        width: 600px;
+        height: 600px;
+        border:1px solid #ddd;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+       
+        position: relative;
+    }
+    li:first-child,li:last-child{
+        height: calc((100% - 20px)/2);
+        border:1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1e9fff;
+        
+    }
+    li:nth-child(2){
+        height: 20px;
+        background: #ddd;
+        border:1px solid #ddd;
+        cursor: move;
+        position: absolute;
+        top: calc(50% - 10px);
+        width: 100%;
+    }
+    .items{
+        height: 600px;
+        border:1px solid #ddd;
+        width: 600px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        
+    }
+    .items p:first-child,.items p:last-child{
+        border:1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc((100% - 20px)/2);
+        height: 600px;
+        background: #e0d205;
+    }
+    .items p:nth-child(2){
+        width: 20px;
+        background: #ddd;
+        height: 600px;
+        position: absolute;
+        left: calc(50% - 10px);
+        cursor: move;
+    }
+</style>
+<body>
+    <div class="container">
+        <ul>
+            <li>top</li>
+            <li class="moves"></li>
+            <li>bottom</li>
+        </ul>
+        <div class="items">
+            <p>left</p>
+            <p class="moves"></p>
+            <p>right</p>
+        </div>
+    </div>
+</body>
+<script>
+    ;!(function(){
+        var isMove = false;
+        var _this ;
+        $(".moves").mousedown(function(){
+            isMove=true;
+            _this=$(this)
+        })
+        $(document).mousemove(function(e){
+            if(isMove){
+                if(_this.prop("tagName")=="LI"){
+                    var heights = parseInt(e.pageY-_this.parent().offset().top-10);
+                    if(heights>=10 && heights<parseInt($("ul").height() -30)){
+                        _this.css({"top":parseInt(e.pageY-_this.parent().offset().top-10)+"px"});
+                        $("li:first").height(parseInt(e.pageY-_this.parent().offset().top-10));
+                        $("li:last").height($("ul").height() -  $("li:first").height()-20);
+                    }else{
+                        isMove=false;  
+                    }
+                }else{
+                    var widths = parseInt(e.pageX-_this.parent().offset().left-10);
+                    if(widths>=30 && widths<parseInt($(".items").width()-50)){
+                        _this.css({"left":parseInt(e.pageX-_this.parent().offset().left-10)+"px"});
+                        $("p:first").width(parseInt(e.pageX-_this.parent().offset().left-10));
+                        $("p:last").width($(".items").width() -  $("p:first").width()-20); 
+                    }else{
+                        isMove=false;  
+                    } 
+                }
+            }
+        })
+        $(".moves").mouseup(function(){
+            isMove=false;
+            _this=null;
+        })
+    })()
+</script>
+</html>

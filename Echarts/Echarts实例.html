@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%;"></div>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            var myChart = echarts.init(document.getElementById("container")); //初始化echarts、
+            var app = {};
+            option = null; //清空先
+            option = {
+                title: {
+                    show: true, //是否显示
+                    x: 'center', //居中(好像这个设置居中了下面的textalign才会生效。)
+                    text: '学习Echarts并为他添加title', //title显示的文本，
+                    textAlign: "cneter", //ttile在容器中的对其方式。
+                    link: "http://www.baidu.com", //可以添加title点击的链接。
+                    target: 'self', //规定实在本窗口中打开还是新窗口中打开。
+                    borderWidth: '2', //边框的宽度。
+                    textStyle: { //这里就是设置ttile文本的样式。
+                        color: '#333',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 18,
+                        width: "100%",
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    },
+                    subtext: '我是副标题文本', //可以整个副标题，也可以设置字体的样式。也可以设置链接。
+                    borderColor: '#000' //边框的颜色。
+                },
+                legend: { //图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+                    type: 'scroll',
+                    //top:"50",//距离顶部的距离。
+                    y: 'bottom',
+                    itemGap: 30, //每个item之间的间距。
+                    itemHeight: 20, //没个iten图标的大小。
+                    data: ['邮件营销', '视频广告'],
+                    symbolKeepAspect: true,
+                    inactiveColor: '#ddd', //对应的图例被关闭时，显示的颜色状态。
+                    path: '../images/face/2.gif',
+                    position: 'bottom'
+                },
+                tooltip: {
+                    show: true,
+                    showContent: true, //是否显示数据提示框
+                    triggerOn: 'mousemove', //提示框触发的方式mousemove|
+                    enterable: true, //鼠标可以进入到提示框？？？
+                    //renderMode:'<h1>呵呵呵</h1>',自定义提示框的位置，但是感觉是卵的。
+                    trigger: 'axis',
+                    //formatter: '{b0}: {c0}<br />{b1}: {c1}',设置提示框的内容哟。
+                    backgroundColor: 'rgba(50,50,50,1)', //提示框的背景色、
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            crossStyle: {
+                                color: 'red',
+                                type: ' crossStyle'
+                            }
+                        },
+                        animation: false,
+                        animationEasing: 'cubicOut'
+                    },
+                    textStyle: {
+                        color: 'yellow'
+                    }
+                },
+                grid: { //canvas中的图表绘制。就是网格区域 。
+                    show: true,
+                    top: '10%', //可以是数值，也可以是百分比。
+                    left: '3%',
+                    right: '3%',
+                    bottom: '5%',
+                    borderWidth: '0.5',
+                    borderColor: "#000",
+                    containLabel: true, //是否包含刻度标尺，不包含的话Y轴在全屏状态下就会显示在屏幕之外。
+                    // backgroundColor:'#fff',//网格图例的背景，可以是#ddd，也可以是rgb
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: [{
+                    show: true, //设置x轴最下面的刻度显示不显示。
+                    type: 'category', // 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据。
+                    position: 'bottom', //设置x轴的数据显示在top还是bottom
+                    boundaryGap: true,
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                    name: '', //默认显示在x轴end位置。要用到的时候再说吧，
+                    nameTextStyle: { //name的样式
+                        color: 'red',
+                        fontSize: 18,
+                        backgroundColor: '#ddd',
+                        borderColor: 'green',
+                        borderRadius: 3,
+                        borderWidth: 3,
+                        padding: [8, 5]
+                    },
+                    nameLocation: 'end', //上面name的显示位置，暂时还不知道有啥用、
+                    nameGap: 10,
+                    axisLine: { //坐标轴轴线相关设置。
+                        show: false,
+                        symbol: "arrow", //x轴两端的形状、这里表示的是箭头。
+                        symbolSize: [20, 45] //宽度，高度。
+                    },
+                    axisTick: { //控制x轴刻度。
+                        show: true, //不显示刻度。
+                        //alignWithLabel:false,//
+                        inside: true, //代表刻度的小尖尖朝内还是朝外。
+                        length: 780, //刻度的长度。
+                        lineStyle: { //可以设置刻度的样式。
+                            width: 1
+                                // color , width , type , shadowBlur , shadowColor , shadowOffsetX , shadowOffsetY , opacity }
+                        }
+                    },
+                    axisLabel: { //坐标轴刻度标签的相关设置。
+                        show: true,
+                        interval: 0,
+                        inside: false, //x轴的每个模块的名称，放在图表内还是放在外面。
+                        rotate: 0, //每个名称的旋转，如果长了就转一下，
+                        margin: 25, //刻度标签与轴线之间的距离。
+                        formatter: '{value}哟', //定义名称
+                        showMinLabel: true,
+                        color: '#000', //刻度名称的字体颜色。
+                        fontStyle: 'normal', //刻度字体样式
+                        fontFamily: 'sans-serif',
+                        fontSize: 20,
+                        align: 'left', //水平对齐方式
+                        backgroundColor: { //字体背景。可以是图片。
+                            image: '../images/face/3.gif'
+                        },
+                        borderWidth: '3',
+                        borderRadius: '3',
+                    },
+                    axisPointer: {
+                        type: 'shadow', //鼠标放到x轴模块用什么形状来表示当前模块。line:直线。shadow：方块。none：无
+                        triggerTooltip: true
+                    }
+                }],
+                yAxis: [{
+                    show: true,
+                    offset: 10,
+                    type: 'value',
+                    position: 'left', //原来y轴可以放在left，right两个位置。
+                    name: "宫口",
+                    nameTextStyle: { //name的字体样式。
+                        color: 'red',
+                        fontSize: 13,
+                        backgroundColor: '#ddd',
+                        borderColor: 'green',
+                        borderRadius: 3,
+                        borderWidth: 3,
+                        padding: [4, 2],
+                        nameGap: '', //距离
+                        nameRotate: '', //旋转
+                    },
+                    min: 0, //刻度尺最小单位。
+                    max: 300, //刻度尺最大单位。
+                    interval: 30, //强制分割单位。
+                    triggerEvent: true,
+                    axisLine: {
+                        show: true,
+                        color: '#000',
+                        lineStyle: {
+                            color: '#000'
+                        }
+                    },
+                    axisTick: { //y轴坐标轴的设置
+                        show: true,
+                        inside: false,
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    },
+                    minorTick: {
+                        show: true,
+                        length: 33
+                    },
+                    axisLabel: { //y轴字体旋转
+                        show: true,
+                        inside: false,
+                        rotate: 2,
+                        fontWeight: '',
+                        color: '#000', //y轴字体的颜色。
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#000',
+                            width: 1, //这里是为了突出显示加上的
+                        }
+                    }
+                }, {
+                    show: true,
+                    offset: 10,
+                    type: 'value',
+                    position: 'right', //原来y轴可以放在left，right两个位置。
+                    name: "先露",
+                    nameTextStyle: { //name的字体样式。
+                        color: 'red',
+                        fontSize: 13,
+                        backgroundColor: '#ddd',
+                        borderColor: 'green',
+                        borderRadius: 3,
+                        borderWidth: 3,
+                        padding: [4, 2],
+                        nameGap: '', //距离
+                        nameRotate: '', //旋转
+                    },
+                    axisLine: { //y轴线的颜色以及宽度
+                        show: true,
+                        lineStyle: {
+                            color: "red",
+                            width: 1, //这里可以去掉y轴的第一根竖线，。
+                            type: "solid"
+                        },
+                    },
+                    min: 0, //刻度尺最小单位。
+                    max: 200, //刻度尺最大单位。
+                    interval: 20, //强制分割单位。
+                    axisTick: { //y轴坐标轴的设置
+                        show: true,
+                        inside: false,
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    },
+                    splitLine: { //分割线配置(y轴横线)
+                        show: true,
+                        lineStyle: {
+                            color: "#000",
+                        }
+                    }
+                }],
+                series: [{
+                    show: true,
+                    name: '邮件营销',
+                    type: 'bar',
+                    data: [120, 132, 101, 134, 90, 230, 210],
+                    legendHoverLink: true, //hover时高亮显示，没看出来、、、
+                    itemStyle: {
+                        normal: {
+                            color: 'green', //控制柱子的颜色
+                            borderColor: '#000',
+                            barBorderRadius: 50, //bar圆角显示
+                            showBackground: true,
+                            label: { //柱形图上显示的字体
+                                show: true,
+                                position: 'top',
+                                distance: 5,
+                                color: "#000",
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 16,
+                                distance: 5,
+                                formatter: '{b}{c}', //
+                                backgroundColor: '#fff',
+                                borderWidth: 2,
+                                borderRadius: 3,
+                                borderColor: 'yellow',
+                                padding: 5,
+                            }
+                        },
+                    }
+                }, {
+                    name: '视频广告',
+                    type: 'line',
+                    data: [50, , 21, 154, , , 41],
+                    yAxisIndex: 1, //使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
+                    symbol: 'diamond', //'image://http://xxx.xxx.xxx/a/b.png'节点的图表
+                    symbolSize: 10, //节点图标大小。也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+                    symbolRotate: 45, //节点标记旋转。
+                    symbolOffset: [0, 0], //标记可偏移。
+                    showSymbol: true, //是否显示 symbol, 如果 false 则只有在 tooltip hover 的时候显示。
+                    legendHoverLink: true,
+                    cursor: 'cursor', //鼠标到节点上的手势。not-allowed用的css里面的。
+                    connectNulls: true, //是否链接空数据。也就是断点连线。
+                    borderColor: "#000",
+                    itemStyle: {
+                        normal: {
+                            color: 'yellow', //节点的颜色。
+                            label: { //节点上的文本样式
+                                show: true,
+                                color: 'purple',
+                                borderColor: "#000",
+                                borderWidth: 2,
+                                backgroundColor: 'yellow',
+                                borderRadius: 3,
+                                padding: 5,
+                                width: 20,
+                                type: 'dashed',
+                                opacity: 0,
+                                rotate: 0,
+                                formatter: '{b}{c}', //文本
+                            },
+                            lineStyle: { //线条
+                                show: true,
+                                color: 'blue',
+                                width: 2,
+                                type: 'dotted',
+                                opacity: 1,
+                            }
+                        }
+                    },
+
+                }]
+            };
+            myChart.setOption(option, true);
+            myChart.on('click', function(param) {
+                console.log(param);
+                console.log('param---->', param); // 打印出param, 可以看到里边有很多参数可以使用
+                //获取节点点击的数组序号
+                var arrayIndex = param.dataIndex;
+                console.log('arrayIndex---->', arrayIndex);
+                console.log('name---->', param.name);
+                if (param.dataType == 'node') {
+                    alert("点击了节点" + param.name)
+                } else {
+                    alert("点击了边" + param.value)
+                }
+            })
+        })();
+    </script>
+</body>
+
+</html>

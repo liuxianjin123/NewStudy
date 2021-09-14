@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <button>Click Me</button>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p class="ioto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+        </div>
+</body>
+<script>
+    $('button').click(function(){
+        $("p").filter('.ioto').css({"border":"1px solid red"});//只匹配符合fliter中条件的元素。
+    });
+</script>
+</html>

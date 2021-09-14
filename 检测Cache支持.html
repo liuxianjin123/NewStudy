@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-ff="123456">111</div>
+</body>
+<script>
+     var p = document.createElement("p");
+        p.innerHTML="<span>我只是p下面的子元素</span>";
+        document.getElementsByTagName("div")[0].appendChild(p)  
+        if(document.getElementsByTagName("div")[0].hasAttribute("data-ff")){
+            console.log(document.getElementsByTagName("div")[0].getAttribute("data-ff"))
+        }
+    var df = (name)=>{
+        return `我的名字是${name}`
+    }
+    console.log(df('刘先进'));
+    const employee = {
+            firstName: "Marko",
+            lastName: "Polo",
+            position: "Software Developer",
+            yearHired: 2017
+    };
+    let { firstName, lastName, position, yearHired } = employee;
+    console.log(firstName);
+    let [x,y]=[1,2];
+    console.log(x);
+    let [a,b]=['',''];
+    a+='aaaa'
+    console.log(a)
+</script>
+</html>

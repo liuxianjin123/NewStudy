@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+
+<body>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>赋值和取值</legend>
+    </fieldset>
+
+    <form class="layui-form" action="" lay-filter="example">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择框</label>
+            <div class="layui-input-block">
+                <select name="interest" lay-filter="aihao">
+                    <option value=""></option>
+                    <option value="0">写作</option>
+                    <option value="1">阅读</option>
+                    <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">开关</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">单选框</label>
+            <div class="layui-input-block">
+                <input type="radio" name="sex" value="男" title="男" checked="">
+                <input type="radio" name="sex" value="女" title="女">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">赋值</button>
+                <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-getval">取值</button>
+                <button type="button" class="layui-btn " id='save' lay-filter="demo1">立即提交</button>
+                <button type="button" class="layui-btn " id='createElemnt' lay-filter="demo1">创建标签</button>
+            </div>
+        </div>
+    </form>
+</body>
+<script src='./layui/layui.all.js'></script>
+<script>
+    /*jaAPI合集*/
+    window.onload = function () {
+        document.getElementById("save").onclick = () => {
+            console.log(getComputedStyle(document.getElementById("save")).alignItems)
+            if (confirm("确定删除吗")) {
+                console.log(prompt("请输入删除的理由呢！", '我不想说啥'));
+            } else {
+                alert("你取消了")
+            }
+        }
+        document.querySelectorAll(".layui-btn").forEach(function (i, v) {
+            if (document.querySelectorAll(".layui-btn")[v].getAttribute("id") == "createElemnt") {//获取元素ID
+                var num = 0;
+                var num2 = 100;
+                document.querySelectorAll(".layui-btn")[v].onclick = function () {
+                    var el = document.createElement("button");//动态创建标签
+                    el.className = 'layui-btn';//设置标签的class
+                    el.id = 'createId' + num;//设置标签ID
+                    num += 1;
+                    el.textContent = '我是在父元素的末尾新创建的按钮';//设置标签文本
+                    el.type = 'button';//设置标签的type
+                    document.querySelectorAll(".layui-input-block")[3].appendChild(el);//将创建的标签追加到指定父容器的末尾
+                    var insertel = document.createElement("button");
+                    insertel.className = 'layui-btn';
+                    insertel.id = 'createId' + num2;
+                    num2 += 1;
+                    insertel.textContent = '我是新创建的按钮';
+                    insertel.type = 'button';
+                    //将创建的标签追加到指定父容器的末尾
+                    document.querySelectorAll(".layui-input-block")[3]
+                        .insertBefore(insertel, document.querySelectorAll(".layui-input-block")[3].childNodes[2]);
+                        if(document.querySelector("#LAY-component-form-getval")){
+                            document.querySelectorAll(".layui-input-block")[3].removeChild(document.querySelector("#LAY-component-form-getval"))        
+                        }
+
+                }
+            }
+        })
+        var num = 25.505;
+        var arr = [1,2,56,6,5,5,6,9,8,4,5,55];
+        console.log(arr.toString())
+        console.log(Math.ceil(num))//向上取整,只要有小数(不包括0)就进一位整数
+        console.log(Math.floor(num))// 向下取整,只要有小数就不要小数.保留前面的整数。但如果负数的话,保留数情况相反
+        console.log(Math.round(num)) //小数为四舍五入，方法去保留整数
+        console.log(Math.round((Math.random()*10+20))) //随机出现0到1的（0.几）的小数（指南说有可能为0）公式 Math.random()*k+n n等于起点 k等于目标点减去n
+        console.log(Math.max(1,2,56,6,5,5,6,9,8,4,5,55)) //求最大值，参数里面可以传参，然后返回最大值
+        console.log(Math.min(1,2,56,6,5,5,6,9,8,4,5,55)) //求最小值，参数里面可以传参，然后返回最小值
+        console.log(Math.abs(num)) //返回绝对值
+        console.log(Math.pow(10,5)) //平方数(第一参数为一个数字，第2参数为这个数字的多少平方)
+        document.onmousewheel = function(e){
+            console.log(e);
+        }
+    }
+</script>
+
+</html>

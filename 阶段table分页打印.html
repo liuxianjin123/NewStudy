@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<link rel="stylesheet" href="layui/css/layui.css">
+<script src="js/jquery-1.11.1.min.js"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    div,
+    table {
+        width: 850px;
+        margin: 0 auto;
+    }
+    
+    div table td {
+        border: 1px solid #000;
+        width: 90px;
+        height: 30px;
+    }
+    
+    .pop {
+        background: #fff;
+        display: none;
+    }
+    
+    .pop {
+        text-align: center;
+    }
+    
+    .boxs {
+        display: block;
+        width: 850px;
+        height: 1230px;
+        border: 1px solid green;
+    }
+    
+    .boxs p {
+        width: 850px;
+        text-align: center;
+    }
+    
+    .boxs div {
+        height: 1150px;
+        border: 1px solid red;
+    }
+    
+    .layui-table,
+    .layui-table-view {
+        margin: 0;
+    }
+</style>
+
+<body>
+    <div class="hehe ">
+        <button>打印</button>
+        <table style="border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <td colspan="5" style="text-align: center;">基本资料表</td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td>年龄</td>
+                    <td>身高</td>
+                    <td>体重</td>
+                    <td>性别</td>
+                    <td>性别</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水洒洒洒洒水</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>8啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>啊说打算啊说萨达
+                <tr>
+                    <td>4</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水啊实打实撒旦阿斯</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>啊实打实撒旦阿斯顿啊说打算啊说萨达洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒洒水</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pop">
+        <div class="boxs" style="page-break-before:always;">
+            <h1 style=height:50px;>打印demo</h1>
+            <div>
+                <table class="layui-table" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">基本资料表</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td>年龄</td>
+                            <td>身高</td>
+                            <td>体重</td>
+                            <td>性别</td>
+                            <td>性别</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <p>第 1 页</p>
+        </div>
+    </div>
+</body>
+<script>
+    var s = [];
+    $("button").click(function() {
+        $(".pop").fadeIn();
+        $(".hehe").hide();
+        var html = "";
+        for (var i = 1; i <= $("table tbody tr").length; i++) {
+            s.push("<tr>" + $("table tbody tr:nth-child(" + i + ")").html() + "</tr>");
+        }
+        var page = 1;
+        for (t = 0; t < s.length; t++) {
+            html += s[t];
+            $(".pop table:last tbody").append(html);
+            if ($(".pop table:last").outerHeight() > 770) {
+                page++;
+                $(".pop").append(`<div class="boxs"  style="page-break-before:always;">
+                    <h1 style=height:50px;>打印demo</h1>
+                    <div>
+                        <table class="layui-table" style="border-collapse: collapse;"> 
+                            <thead>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;">基本资料表</td>
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>年龄</td>
+                                    <td>身高</td>
+                                    <td>体重</td>
+                                    <td>性别</td>
+                                    <td>性别</td>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p>第 ` + page + ` 页</p>
+                </div>`);
+            }
+            html = "";
+        }
+    })
+    $(".pop").dblclick(function() {
+        print();
+    });
+
+    function r() {
+        var code = "555";
+        var datas = {
+            "query": "query QueryForm($code: String = \"1234\") {\n  form(where: {code: {_eq: $code}}) {\n    code\n    hy\n    hyqt\n    lxdh\n    slbw\n    txsj\n    whcd\n    whcdqt\n  }\n}\n",
+            "variables": {
+                "code": code
+            },
+            "operationName": "QueryForm",
+        };
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://engaged-sole-66.hasura.app/v1/graphql",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "x-hasura-admin-secret": "ayu8agA9fTpF5ILbubIfTAr9B2Cv778lNao0ZyMBpCHf87TsyIGk0w0oC1pb7N20"
+            },
+            "data": JSON.stringify(datas)
+        };
+        console.log(JSON.stringify(datas))
+
+        $.ajax(settings).done(function(response) {
+            console.log(66, response);
+        });
+    }
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+    });
+
+    function zm(msg) {
+        let arr = msg.split("&");
+        let obj = {};
+        for (var i of arr) {
+            obj[i.split("=")[0]] = i.split("=")[1]
+        };
+        return obj
+
+
+    }
+    let obj = {
+        error: 6666
+    };
+    console.log(Object.keys(obj).includes("error"))
+</script>
+
+</html>

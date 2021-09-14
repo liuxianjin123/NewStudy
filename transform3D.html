@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        perspective: 3400px;
+    }
+    .w1{
+        margin:0 auto;
+        margin-top:200px;
+        transform-style: preserve-3d;
+        position: relative;
+        width:700px;
+        height: 300px;
+        transition: all 5s;
+        transform-origin: center;
+    }
+    .w1:hover{
+        transform: rotateY(720deg) rotatex(-20deg);
+    }
+    .ff{
+        width:700px;
+        height: 300px;
+        font:normal bold 50px/300px '微软雅黑';
+        box-shadow: 0px 0px 10px 2px greenyellow;
+        border-radius: 10px;
+        text-align: center;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+    .d1{
+        background:fuchsia;
+        transform: rotateY(60deg) translateZ(610px);
+    }
+    .d2{
+        background:chartreuse;
+        transform: rotateY(120deg) translateZ(610px);
+    }
+    .d3{
+        background:firebrick;
+        transform: rotateY(180deg) translateZ(610px);
+    }
+    .d4{
+        background:darkcyan;
+        transform: rotateY(240deg) translateZ(610px);
+    }
+    .d5{
+        background:salmon;
+        transform: rotateY(300deg) translateZ(610px);
+    }
+    .d6{
+        background:crimson;
+        transform: rotateY(360deg) translateZ(610px);
+    }
+</style>
+<body>
+   <div class="w1">
+        <div class="d1 ff">
+            TransForm3D
+        </div>
+        <div class="d2 ff">
+            TransForm3D
+        </div>
+        <div class="d3 ff">
+            TransForm3D
+        </div>
+        <div class="d4 ff">
+            TransForm3D
+        </div>
+        <div class="d5 ff">
+            TransForm3D
+        </div>
+        <div class="d6 ff">
+            TransForm3D
+        </div>
+   </div>
+</body>
+</html>

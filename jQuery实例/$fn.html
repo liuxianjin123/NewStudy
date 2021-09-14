@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <input type="text" >
+</body>
+<script>
+$.fn.datetimepicker = function(opt){
+    console.log(opt)
+    $("body").append(`<span><button onclick='alert(1)'></button></span>`)
+    console.log($(this).prop('outerHTML'))
+}
+$("input").click(function(){
+    $(this).datetimepicker({datepicker: false});//参数
+});
+</script>
+</html>

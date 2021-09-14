@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src='js/Validform_min.js'></script>
+    <script src="js/newuilayout.js"></script>
+<body>
+    <form id="form1" method="post" runat="server">
+        <input type="hidden" id="H_dy" runat="server" />
+        <div class="fy" style="position: fixed; right: 10px;top:10px; z-index: 9;">
+            总<input type="text" id="count" name="count" style="border: none; width: 10px; background: none" readonly="readonly" />页
+            <input type="button" value="上一页" class="btn_b"  onclick="lastNext(1)" />
+            <input type="text" id="nowpage" name="nowpage" style="border: none; width: 10px; background: none" readonly="readonly" />
+            <input type="button" value="下一页" class="btn_b" onclick="lastNext(2)" />
+        </div>
+        <div class="btn_box" style="top: 60px; right: 7px;width:141px;">
+            <input id="btnAjaxSubmit" type="button" value="保 存" class="btn_b" onclick="AjaxSubmit()" />
+            <input type="submit" value="打 回" class="btn_b dh_btn" style="display: none" onclick="DH()" />
+            <input type="button" style="margin-left: 14px;" id="isPrint" class="btn_b Noprint" value="打 印" onclick="Print_CF()"/>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h1 style="font-size: 30px; font-family: '宋体'; text-align: center">
+                    <b style="font-size: 21px; font-family: '宋体';"><%=company %></b>
+                    <br />
+                    病人转科护理交接登记表
+                </h1>
+            </div>
+            <div class="user-msg" style="margin-top: 50px;">
+                <p style="padding-left: 20px;">
+                    <span>姓名:<input name="xm" value="<%=brxx.xm%>" type="text" style="width: 150px; font-size: 15px; margin-left: 5px;" /></span>
+                    <span>性别:<input name="xb" value="<%=brxx.xb %>" type="text" style="width: 110px; font-size: 15px; margin-left: 5px;" /></span>
+                    <span>年龄:<input name="nl" value="<%=brxx.nl %>" type="text" style="width: 100px; font-size: 15px; margin-left: 5px;" /></span>
+                    <span>住院号:<input name="tmh" value="<%=brxx.tmh %>" type="text" style="width: 170px; font-size: 15px; margin-left: 5px;" /></span>
+                </p>
+                <p style="padding-left: 20px; margin-top: 8px;">
+                    <span>诊断:<input name="brzd" value="<%=(brxx["zd_new"].ToString().Trim() == "" ?brxx.zd :brxx["zd_new"].ToString()) %>"
+                        type="text" style="width: 700px; font-size: 15px; margin-left: 5px;"></span>
+                </p>
+            </div>
+            <div class="" style="text-align: left; margin-top: 15px;">
+                <table border='1' style="width: 100%; text-align: center; table-layout: fixed;" cellpadding='0' cellspacing='0'>
+                  
+                    <tr>
+                        <td style="width:15px;border: 1px solid #000 !important;" rowspan="3">转
+                            <br />科
+                            <br />前</td>
+                        <td style="width:80px;" >生命体征:</td>
+                        <td colspan="3" style="padding: 3px; box-sizing: border-box">
+                            <p>
+                                <label>
+                                    T:
+                                    <input type="text" name="T" value="" class="tsgrw" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:35,max:40}" /></label>℃
+                                <label style="margin-left: 20px;">
+                                    P:
+                                    <input type="text" name="P" value="" class="tsgry" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:60,max:100}"/></label>次/分
+                                <label style="margin-left: 20px;">
+                                    R:
+                                    <input type="text" name="R" value="" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:10,max:30}"/></label>次/分
+                                <br />
+                                <label>
+                                    BP:
+                                    <input type="text" name="BP" value="" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:90,max:160}"/>
+                                    /<input type="text" name="szy" value=""style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:60,max:100}"/>
+                                </label>mmHg
+                                 <label style="margin-left: 20px; margin-top: 5px;">
+                                     S<sub>p</sub>O<sub>2</sub>:
+                                    <input type="text" name="spo2" value="" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:90,max:100}"/></label>次/分
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>意识:</td>
+                        <td colspan="3">
+                            <p>
+                                <label>
+                                    <input type="checkbox" name="ys" value="清醒" />清醒</label>
+                                <label>
+                                    <input type="checkbox" name="ys" value="意识模糊" />意识模糊</label>
+                                <label>
+                                    <input type="checkbox" name="ys" value="嗜睡" />嗜睡</label>
+                                <label>
+                                    <input type="checkbox" name="ys" value="昏睡" />昏睡</label>
+                                <label>
+                                    <input type="checkbox" name="ys" value="昏迷" />昏迷</label>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px #000;border-style: none none solid none; ">瞳孔(mm):</td>
+                        <td colspan="3" style="padding: 3px;border: 1px #000;border-style: none solid solid none; box-sizing: border-box">
+                           <label>左:<input type="text" name="tkz" value="" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:2.5,max:4}"/></label>
+                           <label>右:<input type="text" name="tky" value="" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:2.5,max:4}"/></label>
+                            <span><b style="margin-right: 10px;">对光反射</b>左:</span><input type="text" name="dgfsz" value="" style="width: 50px;" />
+                            <span><b style="margin-right: 10px;">对光反射</b>右:</span><input type="text" name="dgfsy" value="" style="width: 50px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:15px;border: 1px solid #000 !important;" rowspan="3">转
+                            <br />科
+                            <br />后</td>
+                        <td style="width:80px" >生命体征:</td>
+                        <td colspan="3" style=" padding: 3px; box-sizing: border-box">
+                            <p class="zkh">
+                                <label>
+                                    T:
+                                    <input type="text" name="HT" value="" class="tsgrw" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:35,max:40}"/></label>℃
+                                <label style="margin-left: 20px;">
+                                    P:
+                                    <input type="text" name="HP" value="" class="tsgry" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:60,max:100}"/></label>次/分
+                                <label style="margin-left: 20px;">
+                                    R:
+                                    <input type="text" name="HR" value="" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:10,max:30}"/></label>次/分
+                                <br />
+                                <label>
+                                    BP:
+                                    <input type="text" name="HBP" value="" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:90,max:160}"/>
+                                    /<input type="text" name="Hszy" value=""style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:60,max:100}"/>
+                                </label>mmHg
+                                 <label style="margin-left: 20px; margin-top: 5px;">
+                                     S<sub>p</sub>O<sub>2</sub>:
+                                    <input type="text" name="Hspo2" value="" style="width: 50px;" datatype="extcheck" ignore="ignore" data-vfp="{t:'int',min:90,max:100}"/></label>次/分
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>意识:</td>
+                        <td colspan="3">
+                            <p>
+                                <label>
+                                    <input type="checkbox" name="Hys" value="清醒" />清醒</label>
+                                <label>
+                                    <input type="checkbox" name="Hys" value="意识模糊" />意识模糊</label>
+                                <label>
+                                    <input type="checkbox" name="Hys" value="嗜睡" />嗜睡</label>
+                                <label>
+                                    <input type="checkbox" name="Hys" value="昏睡" />昏睡</label>
+                                <label>
+                                    <input type="checkbox" name="Hys" value="昏迷" />昏迷</label>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px #000;border-style: none none solid none; ">瞳孔(mm):</td>
+                        <td colspan="3" style="padding: 3px;border: 1px #000;border-style: none solid solid none;  box-sizing: border-box">
+                            <label>左:<input type="text" name="Htkz" value="" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:2.5,max:4}"/></label>
+                            <label>右:<input type="text" name="Htky" value="" style="width: 50px;"  datatype="extcheck" ignore="ignore" data-vfp="{t:'float',min:2.5,max:4}"/></label>
+                            <span><b style="margin-right: 10px;">对光反射</b>左:</span><input type="text" name="Hdgfsz" value="" style="width: 50px;" />
+                            <span><b style="margin-right: 10px;">对光反射</b>右:</span><input type="text" name="Hdgfsy" value="" style="width: 50px;" />
+                        </td>
+                    </tr>
+                   
+                </table>
+                    <div>
+                    <span style="float: left; position: relative;left: 44%;">第<input type="text" name="nowpage" style="border: none; width: 10px; background: none" readonly="readonly" />页</span>
+                </div>
+               <p style="text-align: right; width: 680px; margin-top: 20px;">审核护士:</p>
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+$(function(){
+    vf.check()
+})
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input::-webkit-input-placeholder {
+        color: red;
+        font: normal bold 12px/12px '宋体';
+    }
+    
+    input::-ms-input-placeholder {
+        color: red;
+        font: normal bold 12px/12px '宋体';
+    }
+    
+    i {
+        font-style: normal;
+    }
+</style>
+
+<body>
+    <button>sxsdas1</button>
+    <button>sxsdas2</button>
+    <button>sxsdas3</button>
+    <button>sxsdas4</button>
+</body>
+<script src='js/jquery-1.11.1.min.js'></script>
+<script type="text/javascript">
+    ;
+    (function($) {
+        $.extend({
+            getText: function(obj) {
+                var g = $(obj).text() == "a" || a(obj)
+                console.log(g);
+                console.log($("button").get(1).innerHTML)
+            }
+        })
+    })(jQuery)
+
+    function a(obj) {
+        $(obj).css({
+            "color": "red"
+        });
+    }
+    $(function() {
+        $("button").click(function() {
+            $.getText(this);
+        })
+    });
+
+    function t(key) {
+        console.log(key)
+        console.log(arguments.length - 1)
+        var args = [],
+            len = arguments.length - 1;
+        while (len-- > 0) args[len] = arguments[len + 1];
+
+        if (!key) {
+            return "";
+        }
+        var ref = parseArgs.apply(void 0, args);
+        var lang = ref.lang;
+        var fallback = ref.fallback;
+        var params = ref.params;
+        var res = null;
+        if (this.$options.locales) {
+            res = translate(
+                bind(getComponentLocale, this),
+                lang,
+                fallback,
+                key,
+                params
+            );
+            if (res) {
+                return res;
+            }
+        }
+        return warnDefault(
+            lang,
+            key,
+            this,
+            translate(getAssetLocale, lang, fallback, key, params)
+        );
+    };
+    t("fm.components.basic.title")
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>、
+    <iframe src="" frameborder="0"></iframe>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/macarons.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom, 'macarons');
+        var app = {};
+        option = null;
+        option = {
+            legend: {},
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '2012', '2013', '2014', '2015'],
+                    ['Matcha Latte', 41.1, 30.4, 65.1, 53.3],
+                    ['Milk Tea', 86.5, 92.1, 85.7, 83.1],
+                    ['Cheese Cocoa', 24.1, 67.2, 79.5, 6.4]
+                ]
+            },
+            xAxis: [{
+                type: 'category',
+                gridIndex: 0
+            }, {
+                type: 'category',
+                gridIndex: 1
+            }],
+            yAxis: [{
+                gridIndex: 0
+            }, {
+                gridIndex: 1
+            }],
+            grid: [{
+                bottom: '55%'
+            }, {
+                top: '55%'
+            }],
+            series: [
+                // These series are in the first grid.
+                {
+                    type: 'bar',
+                    seriesLayoutBy: 'row'
+                }, {
+                    type: 'bar',
+                    seriesLayoutBy: 'row'
+                }, {
+                    type: 'bar',
+                    seriesLayoutBy: 'row'
+                },
+                // These series are in the second grid.
+                {
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }, {
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }, {
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }, {
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }
+            ]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+        $(window).resize(function() {
+            myChart.resize();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    table {
+        background: #404040;
+    }
+    table tr td{
+        border:2px solid #000;
+        padding: 10px 50px;
+        color:#fff;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>基吧长度</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="xm1">刘先进</td>
+            <td class="age1">26</td>
+            <td class="J8Len1">26KM</td>
+            <td class="xm1">刘先进</td>
+            <td class="age1">26</td>
+            <td class="J8Len1">26KM</td>
+        </tr>
+        <tr>
+            <td class="xm2">刘先进</td>
+            <td class="age2">26</td>
+            <td class="J8Len2">26KM</td>
+            <td class="xm2">刘先进</td>
+            <td class="age2">26</td>
+            <td class="J8Len2">26KM</td>
+            
+        </tr>
+        <tr>
+            <td class="xm3">刘先进</td>
+            <td class="age3">26</td>
+            <td class="J8Len3">26KM</td>
+            <td class="xm3">刘先进</td>
+            <td class="age3">26</td>
+            <td class="J8Len3">26KM</td>
+        </tr>
+        <tr>
+            <td class="xm4">刘先进</td>
+            <td class="age4">26</td>
+            <td class="J8Len4">26KM</td>
+            <td class="xm3">刘先进</td>
+            <td class="age3">26</td>
+            <td class="J8Len3">26KM</td>
+        </tr>
+        <tr>
+            <td class="xm5">刘先进</td>
+            <td class="age5">26</td>
+            <td class="J8Len5">26KM</td>
+            <td class="xm3">刘先进</td>
+            <td class="age3">26</td>
+            <td class="J8Len3">26KM</td>
+        </tr>
+        <tr>
+            <td class="xm6">刘先进</td>
+            <td class="age6">26</td>
+            <td class="J8Len6">26KM</td>
+            <td class="xm3">刘先进</td>
+            <td class="age3">26</td>
+            <td class="J8Len3">26KM</td>
+        </tr>
+    </table>
+</body>
+<script> 
+
+    for(var f = 1;f<7;f++){
+        $("tbody tr:nth-child("+f+")").find($(".xm"+f)).attr("class","xm"+parseInt(parseInt($(".xm"+f+"").attr("class").replace(/[^0-9]/ig,""))+5));
+    }
+</script>
+</html>

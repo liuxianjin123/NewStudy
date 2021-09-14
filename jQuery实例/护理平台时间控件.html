@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" href="jquery-datetimepicker/jquery.datetimepicker.css">
+    <script src="jquery-datetimepicker/jquery.datetimepicker.js"></script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>12</li>
+        <li>12</li>
+        <li>12</li>
+        <li>23</li>
+        <li>34</li>
+        <li>3</li>
+    </ul>
+</body>
+<style>
+    ul{
+        display: flex;
+        width:520px;
+        height:50px;
+        overflow-y: auto;
+        border:1px solid green;
+    }
+    li{
+        display: inline-block;
+        padding: 0 20px;
+        line-height: 45px;
+        height: 45px;
+        border:1px solid red;
+        margin: 0 4px;
+    }
+</style>
+<script>
+    $(function(){
+        var htmls =
+        `
+        <input  type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm' })"/>
+        <input  type="text" id="h1"/>
+        `;
+        $("div").html(htmls);
+        $("#h1").click(function(){
+           $(this).datetimepicker()
+        });
+        $("ul").click(function(){
+            var f = $(this).find("*");
+            console.log($(f[5]).text())
+        });
+    })
+</script>
+</html>

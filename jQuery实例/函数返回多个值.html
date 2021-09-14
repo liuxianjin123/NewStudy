@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <input type="text" class="ed">
+    <input type="text" class="df">
+</body>
+<script>
+    $(".ed").on("change",function(){
+        var f =  $(".df").val();
+        $(".df").trigger("change");
+    })
+    $(".df").on('change',function(){
+        alert($(this).val())
+    });
+    function returnAll() {
+        var text, id, names;
+        $.ajax({
+            async: false,
+            url: 'https://api.apiopen.top/getJoke?page=1&count=2&type=video',
+            type: 'post',
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                text = data.result[0].text;
+                id = data.result[0].sid;
+                names = data.result[0].name;
+                return { "text": text, "id": id, "name": names }
+            }
+        })
+        return { "text": text, "id": id, "name": names }
+    }
+    var f = returnAll();
+    console.log(f)
+    $("p:first").html(f.text);
+    $("p:nth-child(2)").html(f.id);
+    $("p:last").html(f.name);
+    var s = "2020-04-12 01:43:02";
+    var e = "2020-04-14 06:23:02";
+    var kssj = new Date(s).getTime();//转换开始时间成毫秒数
+    var jssj = new Date(e).getTime();//转换结束时间成毫秒数
+    var sjc = jssj-kssj;//开始时间和结束时间之间的毫秒数之差。
+    var days = Math.floor(sjc/(24*3600*1000));//向下取整(2.124545==2)(24*3600*1000)//因为是毫秒数，转换成小时除1000之后就是多小秒。除60就是多少分*再除60就是多少小时，*除24因为24小时为一天。
+    console.log(days);
+    var leave1 = sjc % (24 * 3600 * 1000); //这里取余，也就是抛去转换成小时之后的还毫秒数了、
+    var hours = Math.floor(leave1 / (3600 * 1000)) + days;
+    console.log(hours);
+</script>
+
+</html>

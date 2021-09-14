@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li{
+        border:1px solid red;
+        width: 500px;
+    }
+</style>
+<body>
+    <div id="floatpanel1"></div>
+    <p style="height: 500px;border:1px solid red;">在下刘先近</p>
+    <div style="border:1px solid green">
+        <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var floatpanel1 = document.getElementById("floatpanel1");
+    function fpObj() {
+        this.fpnl = floatpanel1;
+    }
+    fpObj.prototype = {
+        addText: function () {
+            this.fpnl.innerHTML = "我是通过继承的方式来添加文本的!";
+        },
+        addColor: function () {
+            this.fpnl.style.color ="red";
+        },
+        addBorder: function () {
+            this.fpnl.style.border="1px solid red";
+        }
+    }
+    if(floatpanel1.innerHTML== ""){
+        var fp1 = new fpObj();
+        fp1.addText();
+        fp1.addColor();  
+        fp1.addBorder();  
+    }
+    function Foo(name,age) {
+        this.name=name;
+        this.age = age;
+    };
+    let f2 = new Foo('Top',22);
+    function Person(){
+	this.name;
+    }
+    Person.prototype.say=function(){
+        console.log("hello");
+    }
+    
+    var person=new Person();
+    
+    console.log(Person.__proto__);
+    console.log(Function.prototype);
+    
+    console.log(Person.prototype.__proto__);
+    console.log(Object.prototype);
+    
+    console.log(person.__proto__);
+    console.log(Person.prototype);
+    
+    console.log(Person.prototype.constructor);
+    console.log(Person);
+</script>
+</html>

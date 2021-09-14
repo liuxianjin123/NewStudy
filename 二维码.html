@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src='js/qrcode.js'></script>
+</head>
+
+<body>
+    <button class="btn">生成二维码</button>
+    <div id="qrcode" style="height: 500px;width:250px"></div>
+</body>
+<script>
+    $(function () {
+        var qrcode = new QRCode("qrcode", {
+            width: 128,
+            height: 128,
+            colorDark: "#000",
+            colorLight: "#ffffff",
+        });
+        qrcode.makeCode("http://www.baidu.com");
+        $("button").click(function () {
+            qrcode.clear(); // 清除代码
+            qrcode.makeCode("本文整理了一些主要的、jQuery工具函数017-04-27"); // 生成另外一个二维码   
+        });
+    });
+    (function(){
+        var f = "这就是块级作用域";
+        console.log(f);
+    })();
+    
+</script>
+
+</html>

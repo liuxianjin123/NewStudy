@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/layui.all.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all .4s;
+    }
+    .cv{
+        position: fixed;
+        top:50%;
+        height:200px;
+        margin-top: -100px;
+        left:50px;
+        list-style: none;
+        text-align: center;
+        width:90px;
+    }
+    .cv li,.cv a{
+        width: 100%;
+        text-decoration: none;
+        height: 40px;
+        border:1px solid red;
+        line-height: 40px;
+    }
+     div{
+        height: 700px;
+        border:1px solid red;
+        transition: all .4s;
+    }
+    .slideBlock{
+        position: absolute;
+        width: 90px;
+        height:40px;
+        background: red;
+        margin:-200px 0 0 -45px;
+        z-index: -1;
+        transition: all 1.4s;
+    }
+    .topslide{
+        position: absolute;
+        height: 7px;
+        background: goldenrod;
+        margin: 53px 0 0 0px;
+    }
+</style>
+<body>
+    <ul class="cv">
+        <li><a href="#d1">锚点一</a></li>
+        <li><a href="#d2">锚点二</a></li>
+        <li><a href="#d3">锚点三</a></li>
+        <li><a href="#d4">锚点四</a></li>
+        <li><a href="#d5">锚点伍</a></li>
+        <a href="" class="slideBlock"></a>
+    </ul>
+    <div id="d1">
+        <ul class="layui-nav" >
+             <i class="topslide"></i>
+            <li class="layui-nav-item"><a href="">最新活动</a></li>
+            <li class="layui-nav-item"><a href="">产品</a></li>
+            <li class="layui-nav-item"><a href="">大数据大数据大数据大数据</a></li>
+            <li class="layui-nav-item"></li>
+            <li class="layui-nav-item"><a href="">社区</a></li>
+           
+        </ul>
+    </div>
+    <div id="d2">2</div>
+    <div id="d3">3</div>
+    <div id="d4">4</div>
+    <div id="d5" style="margin-bottom:500px;">5</div>
+</body>
+<script>
+    $(function(){
+        $("a").click(function(e){
+            $("html,body").animate({ scrollTop: $($(this).attr("href")).offset().top}, 1000);
+        });
+        $(window).scroll(function(){
+           var d= $("html,body").scrollTop();
+            if (d<700){
+                $(".slideBlock").css({"margin":"-200px 0 0 -45px"});
+            }else if(d>700 && d<1400){
+                $(".slideBlock").css({"margin":"-160px 0 0 -45px"});
+            }else if(d>1400 && d<2100){
+                $(".slideBlock").css({"margin":"-120px 0 0 -45px"});
+            }else if(d>2100 && d<2800){
+                $(".slideBlock").css({"margin":"-80px 0 0 -45px"});
+            }else if(d>2800){
+                $(".slideBlock").css({"margin":"-40px 0 0 -45px"});
+            }
+        });
+        $(".topslide").width($(".layui-nav-item:first").width());
+        $(".layui-nav-item").mouseenter(function(){
+             $(".topslide").css({"margin-left":$(this).offset().left-21,"width":$(this).width()});
+        })
+    })
+ 
+</script>
+</html>

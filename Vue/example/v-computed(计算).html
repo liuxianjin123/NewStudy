@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <h1>v-component（组件）</h1>
+    <hr>
+    <div id="app">
+        <p>原本商品的价格是{{price}}元</p>
+        <button @click="gg">{{num}}</button>
+    </div>
+</body>
+<script>
+   var app = new Vue({//构造器1
+       el:'#app',
+       data:{
+         price:100   
+       },
+       methods:{
+            gg(){
+                event.style="color:red"
+            }
+       },
+       computed:{
+            num:function(){
+               return this.price=(this.price*this.price)+"个美女"
+            }
+       }
+   });
+   function methods(){
+       console.log("当你看见这个，表示我已经被调用。");
+   }
+//    document.querySelector("button").onclick=function(){
+//     methods();
+//    }
+</script>
+</html>  

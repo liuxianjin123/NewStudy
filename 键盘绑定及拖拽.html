@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="layui/css/layui.css">
+<script src='./layui/layui.js'></script>
+<style>
+    .tableBox {
+        height: 100%;
+        user-select: none;
+        overflow: auto;
+        position: relative;
+    }
+    
+    .copyMove {
+        display: none;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid #1e9fff;
+        background: #fff;
+    }
+    
+    .content {
+        display: flex;
+        border: 1px solid red;
+        height: 700px;
+    }
+    
+    aside {
+        width: 250px;
+        height: 100%;
+        border-right: 1px solid red;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .tableBox {
+        flex: 1;
+    }
+</style>
+
+<body>
+    <button class='layui-btn ' onclick="AddItems()">AddItems</button>
+    <button class='layui-btn sa'>sa</button>
+    <div class="content">
+        <aside>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-heart" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-heart-fill" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-time" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-light" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-bluetooth" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i>
+        </aside>
+        <div class="tableBox" id='fff'>
+            <table class='layui-table'>
+                <tr>
+                    <th class="edtable">年龄</th>
+                    <th class="edtable">星期一</th>
+                    <th class="edtable">星期二</th>
+                    <th class="edtable">星期三</th>
+                    <th class="edtable">操作</th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+                <tr>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"></th>
+                    <th class="edtable"><button class='layui-btn'>删除</button></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class='copyMove' id='copyMove'>
+
+    </div>
+</body>
+<script>
+    var $ = layui.$;
+    $("#ps").click(function() {
+        console.log($(this).attr("style"))
+    });
+    $(function() {
+            var isMove = false; //是否可移动
+            var downObj = null; //当前被按下的元素
+            var timer; //控制内部滚动条上下移动的定时器
+            var mainScrollTop = 0; //容器内部滚动条的高度
+            $(document).on('mousemove', function(event) {
+                if (isMove) {
+                    mainScrollTop = $(".tableBox").scrollTop();
+                    var event_pageY = event.pageY - $(".tableBox").offset().top;
+                    $(".copyMove").html($(downObj).prop("outerHTML")).show().css({
+                        "left": event.pageX - 32,
+                        "top": event.pageY - 15
+                    });
+                    if (event_pageY > $(".tableBox").height() - 20) {
+                        clearInterval(timer)
+                        timer = setInterval(function() {
+                            $(".tableBox").scrollTop(mainScrollTop += 10);
+                        }, 10);
+                    } else if (event_pageY <= 20) {
+                        clearInterval(timer)
+                        timer = setInterval(function() {
+                            $(".tableBox").scrollTop(mainScrollTop -= 10);
+                        }, 10);
+                    } else {
+                        clearInterval(timer)
+                    }
+                }
+            })
+            $(document).on('mouseup', function() {
+                isMove = false;
+                clearInterval(timer);
+                $(".copyMove").hide();
+                $(".tableBox tbody th").each(function(i, v) {
+                    if ($(this).hasClass("_this")) {
+                        $(this).append($(".copyMove").html())
+                    }
+                });
+                $("._this").removeClass("_this");
+            })
+            $(document).on('mousedown', 'i', function(event) {
+                if (event.which == 1) {
+                    isMove = true;
+                }
+                downObj = this;
+                $('th').hover(function(event) {
+                    if (isMove) {
+                        $(this).addClass("_this").css({
+                            "background": "#ddd"
+                        }).siblings().removeClass("_this").css({
+                            "background": "#fff"
+                        });
+                        $(this).parent().siblings().find("th").removeClass("_this").css({
+                            "background": "#fff"
+                        });
+                    }
+                });
+            });
+
+        })
+        //     $(document).keydown(function (event) {
+        //         var keyNum = event.which; //获取键值
+        //         console.log(keyNum)
+        //         var test = $('.check'); //要移动的元素
+        //         switch (keyNum) { //判断按键
+        //             case 37:
+
+    //                 test.css({
+    //                     left: '-=1px'
+    //                 });
+    //                 break;
+    //             case 38:
+
+    //                 test.css({
+    //                     top: '-=1px'
+    //                 });
+    //                 break;
+    //             case 39:
+
+    //                 test.css({
+    //                     left: '+=1px'
+    //                 });
+    //                 break;
+    //             case 40:
+
+    //                 test.css({
+    //                     top: '+=1px'
+    //                 });
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //     });
+    // }
+    // function AddItems(event) {
+    //     $(".layui-main").append("<div class='layui-elem-quote check'>引用区域的文字</div>")
+    // }
+    // designPanel();
+    // (function(){
+    //     var tableData = [1,2,3,34,5,6,4];
+    //     var tableFliter = [];
+    //     console.log(tableData)
+    // })()
+    // $(function(){
+    //     var tableData = [11,22,33,344,55,66,47];
+    //     var tableFliter = ['大爸爸吧'];
+    //     console.log(tableData)
+    //     try {
+    //         (function(){
+    //             if(tableData){
+    //                // document.write(tableData)
+    //             }
+    //         })()
+    //     } catch (error) {
+    //         console.log(error);
+    //         console.log("虽然上面报错，但我还是需要执行")
+    //     }
+
+    // })
+</script>
+
+</html>

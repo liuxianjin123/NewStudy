@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>V-if&V-else&</h1>
+    <hr>
+    <div id="app">
+        <p v-if="show">如果show的值是true，我就会显示，否则我下面的都span就会y隐藏</p>
+        <span v-else>如果show的值是flase，我就会显示，否则我上面的都p就会隐藏</span>
+        <b v-show="show">当然这里还有一个b标记，这里的v-show只是判断真假值来隐藏显示标记</b>
+    </div>
+    <ul id="uls">
+        <li v-if="isok">isok=={{isok}},所以我显示。</li>
+        <li v-else>isok=={{isok}},所以我隐藏。</li>
+        <li v-show="isok">isok=={{isok}},所以我{{isok==true?"显示":"隐藏"}}。</li>
+    </ul>
+    <!--
+        v-if:的原理是先判断真假值在决定是否向浏览器渲染相关的dom；这样的逻辑可以减轻浏览器加载渲染的压力。
+        v-show：无论真假值都会渲染dom，只是判断真假值来控制显示和隐藏dom而已。
+    -->
+</body>
+<script>
+    var app =new Vue({
+        el:"#app",
+        data:{
+            msg:"V-if&V-else&",
+            show:true,
+        }
+    });
+    var uls = new Vue({
+        el:"#uls",
+        data:{
+            isok:true
+        }
+    });
+</script>
+</html>  

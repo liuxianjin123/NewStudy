@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        height: 30px;
+        border:1px solid #000;
+        border-radius: 15px;
+        outline: none;
+        padding-left:10px;
+        transition: all .3s;
+        width:200px; 
+    }
+    input:focus{
+        width:300px;
+    }
+    li::first-line{/* 匹配元素的第一行文本 */
+        color:red;
+    }
+    li::first-letter{/* 匹配元素的第一个字 */
+        font:italic 700 20px/50px sans-serif;
+    }
+    li::selection{/* 被用户高亮(可以理解成选中将要复制的部分)的文本处理 */
+        color:#000;
+    }
+    li:empty{/* 匹配内容为空的元素 */
+        background:red;
+    }
+    p:only-child{
+        background:plum;
+    }
+    .plsy span:first-of-type{
+        color:red;
+    }
+</style>
+<body>
+    <ul id='dd' class="de fd">
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio vitae, dolore rem suscipit asperiores nisi quisquam. Itaque optio eum dignissimos, eius fuga architecto. Rerum, consectetur excepturi voluptas repudiandae exercitationem a.</li>
+        <li>2</li>
+        <li>3</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>3</li>
+        <li>3</li>
+        <input type="text" placeholder='4am 王欣'>
+    </ul>
+    <div>
+        <p>只有我一个元素</p>
+    </div>
+    <div>
+        <p>我是存在兄弟的元素</p>
+        <p>我是上面的兄弟</p>
+    </div>
+    <p class="plsy">
+        <span>他们</span>
+        <p>jsn</p>
+        <span>都叫我</span>
+        <span>牛逼</span>
+    </p>
+    <select>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
+</body>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+    $("ul").click(function(){
+       $("select").trigger('click');
+l   });
+</script>
+</html>

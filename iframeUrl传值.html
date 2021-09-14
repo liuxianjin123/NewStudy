@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     :root {
+        --bg: #1e9fff;
+        --borderColor: 1px solid red;
+        --padding: 10px;
+        --font: initial bold 25px/55px '微软雅黑';
+    }
+    
+    p {
+        background: var(--bg);
+        border: var(--borderColor);
+        padding: var(--padding);
+        font: var(--font)
+    }
+    
+    p>span {
+        display: block;
+    }
+    
+    p span:first-child+span {
+        color: red;
+    }
+    
+    p span:first-child~b {
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <p class="s1 ss">
+        <span>我是第一个元素</span>
+        <span>我是第二个元素</span>
+        <span>我是第三个元素</span>
+        <span>我是第四个元素</span>
+        <span>我是第五个元素</span>
+    </p>
+    <a href="javascript:;">游走全屏的广告</a>
+</body>
+<script>
+    document.getElementsByTagName("a")[0].onclick = function() {
+        window.open("游走全屏的广告.html?zyh=啥几把", 500, 500); //编码
+    }
+    var a = 1;
+    var b;
+    console.log(a && b);
+    var _b = document.createElement("b");
+    _b.innerHTML = "<span>我是b中的span元素</span>"
+    console.log(document.querySelector("p").removeChild(document.querySelector("p").children[0]))
+    document.querySelector("p").querySelectorAll("span")[0].style.Border = "1px solid red";
+    console.log(document.querySelector("p").classList, getComputedStyle(document.querySelector("p")).padding)
+    document.querySelector("p").insertBefore(_b, document.querySelector("p").childNodes[0]);
+    document.querySelector("p").appendChild(_b);
+    console.log(document.querySelector("p").className.includes("ss"))
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <div id="app"></div>
+   <template id="demo2">
+       <h1>我就是Vue里面的模板</h1>
+   </template>
+</body>
+<script>
+   
+   var app = new Vue({
+       el:'#app',
+       data:{
+           count:0
+       },
+       methods:{
+        num:function(){
+                this.count++
+            }
+       },
+       template:'#demo2'
+   });
+  
+</script>
+</html>  

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+     <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+      <script  src="Vue/vue.js"></script>
+    <script  src="element-ui/lib/index.js"></script>
+    
+
+</head>
+<style>
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    color: #333;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  html,body,#app{
+    height:100%;
+  }
+  .demo-table-expand {
+    font-size: 0;
+  }
+  .demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+  }
+  .demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+  </style>
+<body>
+    <div id="app">
+        <el-container style="height: 100%; border: 1px solid rgb(20, 19, 19)">
+            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+              <el-menu :default-openeds="['1']">
+                <el-submenu index="1">
+                  <template slot="title"><i class="el-icon-message"></i>导航一</template>
+                  <el-menu-item-group>
+                    <template slot="title">分组一</template>
+                    <el-menu-item index="1-1">选项1</el-menu-item>
+                    <el-menu-item index="1-2">选项2</el-menu-item>
+                  </el-menu-item-group>
+                  <el-menu-item-group title="分组2">
+                    <el-menu-item index="1-3">选项3</el-menu-item>
+                  </el-menu-item-group>
+                  <el-submenu index="1-4">
+                    <template slot="title">选项4</template>
+                    <el-menu-item index="1-4-1">选项4-1</el-menu-item>
+                  </el-submenu>
+                </el-submenu>
+              </el-menu>
+            </el-aside>
+            <el-container>
+              <el-header style="text-align: right; font-size: 12px">
+                <el-dropdown>
+                  <i class="el-icon-setting" style="margin-right: 15px"></i>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>查看</el-dropdown-item>
+                    <el-dropdown-item>新增</el-dropdown-item>
+                    <el-dropdown-item>删除</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+                <span>刘先近</span>
+              </el-header>
+              <el-main>
+                <el-divider content-position="left">简单的弹出信息框</el-divider>
+                <template>
+                    <el-button  @click="open2">点击打开 Message Msg</el-button>
+                </template>
+                <el-divider content-position="left">这是alert消息提示框(只能确定)</el-divider>
+                <template>
+                    <el-button type="button" @click="open1">点击打开 Message Alert</el-button>
+                </template>
+                <el-divider content-position="left">这是询问框(可确定可删除)</el-divider>
+                <template>
+                    <el-button type="button" @click="open">点击打开 Message Confim</el-button>
+                </template>
+                <el-divider content-position="left">主要是获取用户简单的输入</el-divider>
+                <template>
+                    <el-button type="button" @click="open3">点击打开 Message 用户可输入的弹窗</el-button>
+                </template>
+                <el-divider content-position="left">html 文档不是这个组件</el-divider>
+                <template>
+                    <el-button type="button" @click="open4">点击打开 Message Html表单输入的弹窗</el-button>
+                </template>
+              </el-main>
+              <el-footer>Footer</el-footer>
+            </el-container>
+          </el-container>
+    </div>
+</body>
+<script>
+  var app = new Vue({
+    el:'#app',
+    data:{
+        form:{
+          name:'',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: '',
+          jsps:false
+        }
+    },
+    methods:{
+        open1() {
+            this.$alert('这是一段内容', '标题名称', {
+            confirmButtonText: '确定',
+            callback: action => {
+                this.$message({
+                type: 'success',
+                message: `你点击了确定`
+                });
+            }
+            });
+        },
+        open() {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '是否删除？', {
+                distinguishCancelAndClose: true,//关闭和取消按钮区分开来。不是一个分开处理回调事件。
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                showClose:false,
+                type: 'success',
+                closeOnClickModal:true,//点击遮罩关闭box
+                closeOnPressEscape:true,//点击ESC键关闭box
+                showInput:true,
+                inputPlaceholder:'随便输入一个看看效果',
+                roundButton:true//圆角的按钮?
+            }).then(({value}) => {
+                this.$message({
+                    type: 'success',
+                    message: value,
+                });
+            }).catch(action => {
+                this.$message({
+                    type: 'info',
+                    message: action === 'cancel'? '放弃保存并离开页面': '停留在当前页面'
+                });          
+            });
+        },
+        open2() {
+            this.$message({
+                message: '恭喜你，这是一条成功消息',//消息文本
+                type: 'success',//消息的提示类型
+                duration:1000,//倒计时关闭时间
+                showClose:true,//是否显示可主动关闭按钮
+                center:true,
+                // onClose:action => {
+                //     this.$message({
+                //         message:'已经被关闭',
+                //         duration:1000,
+                //     });
+                // }
+            });
+        },
+        open3() {
+            this.$prompt('请输入邮箱', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            }).then(({ value }) => {
+                this.$message({
+                    type: 'success',
+                    message: '你的邮箱是: ' + value
+                });
+            }).catch(action => {
+                this.$message({
+                    type: 'info',
+                    message:'停留在当前页面'
+                });       
+            });
+        },
+        open4() {
+            this.$prompt('请输入邮箱', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消'
+            }).then(({ value }) => {
+                this.$message({
+                    type: 'success',
+                    message: '你的邮箱是: ' + value
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '取消输入'
+                });       
+            });
+        }
+    }
+  })
+
+</script>
+</html>

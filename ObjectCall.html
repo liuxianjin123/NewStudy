@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj={
+        name:'刘先近',
+        age:'25岁',
+        fun:function(){
+            document.write(this.name+this.age);
+        }
+    }
+    let objs={
+        name:'掌中正的年龄是:',
+        age:6666
+    }
+    obj.fun.call(objs);
+    var arr = [1,2,3,4.5,6.67];
+    for(var f=0;f<arr.length;f++){
+        console.log(arr[f])
+    }
+    
+</script>
+</html>

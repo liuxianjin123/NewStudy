@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <h1>v-component（组件添加属性）</h1>
+    <hr>
+    <div id="app">
+        <itemcomponent here='china'></itemcomponent>
+        <sendval :here="msg" ></sendval>
+        <button @click="changes()">点击我试试</button>
+    </div>
+</body>
+<script>
+   var app = new Vue({//构造器1
+       el:'#app',
+       data:{
+           msg:'我就是需要传值给组件的这个属性。'
+       },
+       components:{//定义局部组件，可定义多个局部组件.组件的命名不能是驼峰写法，
+            "itemcomponent":{
+                template:`<div style="color:red;" @click="changes()">panda from {{ here }}</div>`,
+                props:['here']//代码定义了panda的组件，并用props设置了here的属性值，在here属性值里传递了China给组件。 最后输出的结果是红色字体的Panda from China.
+            },
+            "sendval":{
+                template:`<h1>看看传值成功了没？{{here}}</h1>`,
+                props:['here'],
+            }
+       },
+       methods:{
+           changes(){
+               this.msg='我是给组件传入的值，我已经被改变。'
+           }
+       }
+   });
+</script>
+</html>  

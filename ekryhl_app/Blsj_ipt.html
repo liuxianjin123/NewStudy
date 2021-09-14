@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>护理不良事件登记表</title>
+    <meta charset="UTF-8">
+    <!--开启全屏-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--隐藏状态栏/设置状态栏颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--UC强制竖屏-->
+    <meta name="screen-orientation" content="portrait">
+    <!--QQ强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <!--QQ强制全屏-->
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/ekryhljld_style.css"/>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/style.js"></script>
+    <script src="js/ekryhlpgd.js"></script>
+</head>
+<style>
+    .titles{
+        font-weight: bold;
+    }
+    footer{
+
+        width:100%;
+        text-align:center;
+    }
+    footer .jump{
+        margin-top:1rem;
+        background:#FF9C30 !important;
+    }
+    .yyqk{
+        padding:1px;
+    }
+    .yyqk div{
+        display:inline-block;
+    }
+    .sjlxqt,.gdlx,
+    .ddzcshdj,.sjlxqt
+    ,.gdqt,.search,#bingrenss,#hushiss{
+        display:none;
+    }
+    #pfnm div{
+        display: inline-block;
+    }
+    .search{
+        background: #57f1d4;
+        border:none;
+        width: 3rem;
+        height: 1.3rem;
+        margin-top: 0.5rem;
+    }
+    /*病人信息搜索&还是信息*/
+    #bingrenss,#hushiss{
+        width: 80%;
+        height:16rem;
+        border:1px solid #cac2c2;
+        position:fixed;
+        top:70%;
+        margin-top:-8rem;
+        margin-left:-40%;
+        left:50%;
+        overflow-y: auto;
+        background: #fff;
+    }
+    #hushiss{
+        width: 100%;
+        left:0;
+        margin-left:0;
+        top:60%;
+        margin-top:-8rem;
+    }
+    #bingrenss .bingrenss th,td{
+        width: 0 !important;
+        height: 1rem;
+        text-align: center;
+    }
+    #hushiss .bingrenss th,td{
+        width: 0 !important;
+        height: 1rem;
+        text-align: center;
+    }
+    .bingrenss tr td,.hushiss tr td{
+        border-bottom:1px solid #cac2c2;
+        word-break: break-all;
+    }
+    .bingrenss tr td:nth-child(2){
+        border-left:1px solid #cac2c2;
+    }
+    .bingrenss tr:active,.hushiss tr:active{
+        background: beige;
+    }
+</style>
+<body>
+<form action="">
+    <div class="content">
+        <h3 class="titlemsg">护理不良事件登记表</h3>
+        <section>
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr><th class="titles">基本信息</th><td></td></tr>
+                <tr><th>发生日期:</th>
+                    <td>
+                        <input type="text" id="fsrq" runat="server" name="fsrq"  data-options="{'type':'YYYY-MM-DD hh:mm','beginYear':2010,'endYear':2088}" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>发生科室:</th>
+                    <td>
+                        <input name="fsks" type="text"  id="fsks" runat="server" />
+                    </td>
+                </tr>
+                <tr><th>事件类型:</th>
+                    <td>
+                        <select name="sjlx" id="sjlx" class="rule-select" runat="server">
+                            <option value="">请选择</option>
+                            <option value="跌倒">跌倒</option>
+                            <option value="坠床">坠床</option>
+                            <option value="烫伤">烫伤</option>
+                            <option value="走失">走失</option>
+                            <option value="自杀">自杀</option>
+                            <option value="自残">自残</option>
+                            <option value="噎呛">噎呛</option>
+                            <option value="用药错误">用药错误</option>
+                            <option value="漏用药">漏用药</option>
+                            <option value="院内压疮">院内压疮</option>
+                            <option value="管道脱落">管道脱落</option>
+                            <option value="输液反应">输液反应</option>
+                            <option value="投诉">投诉</option>
+                            <option value="擅自离院发生意外">擅自离院发生意外</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="sjlxqt">
+                    <th></th>
+                    <td><input name="sjlxqt" class="ifval" type="text" value="" id="sjlxqt" runat="server" placeholder="事件类型-其他"/></td>
+                </tr>
+                <tr class="gdlx">
+                    <th></th>
+                    <td>
+                        <select name="gdlx" id="gdlx" class="rule-select" runat="server">
+                            <option value="">请选择</option>
+                            <option value="胃管">胃管</option>
+                            <option value="尿管">尿管</option>
+                            <option value="血浆管">血浆管</option>
+                            <option value="T管">T管</option>
+                            <option value="脑室引流管">脑室引流管</option>
+                            <option value="气管插管">气管插管</option>
+                            <option value="中心静脉">中心静脉</option>
+                            <option value="呼吸机">呼吸机</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="gdqt">
+                    <th></th>
+                    <td><input name="gdqt" class="ifval" type="text" runat="server" id="gdqt" value="" placeholder="管道脱落-其他"/></td>
+                </tr>
+                <tr class="ddzcshdj">
+                    <th></th>
+                    <td>
+                        <select name="ddzcshdj" id="ddzcshdj" class="rule-select" runat="server">
+                            <option value="">请选择</option>
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><th>事件类型:</th>
+                    <td>
+                        <select name="sjfj" id="sjfj" runat="server">
+                            <option value="">请选择</option>
+                            <option value="I">I级</option>
+                            <option value="II">II级</option>
+                            <option value="III">III级</option>
+                            <option value="VI">VI级</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><th>上报人员:</th>
+                    <td>
+                        <input name="sbry" type="text"  id="sbry" runat="server" />
+                    </td>
+                </tr>
+                <tr><th>上报时间:</th>
+                    <td>
+                        <input name="sbsj" type="text"  id="sbsj" runat="server"data-options="{'type':'YYYY-MM-DD hh:mm','beginYear':2010,'endYear':2088}" />
+                    </td>
+                </tr>
+                <tr><th>信息来源:</th>
+                    <td>
+                        <select name="xxly" id="xxly" runat="server">
+                            <option value="">请选择</option>
+                            <option value="投诉">投诉</option>
+                            <option value="自查" selected="selected">自查</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><th class="titles">病人资料</th><td></td></tr>
+                <tr>
+                    <th>住院号:</th>
+                    <td>
+                        <input type="text" name="zyh" id="zyh" style="" style="width: 78%;" runat="server" />
+                        <button style="position:absolute;right:4px;" id="searchbr" class="search">搜&nbsp;索</button>
+                    </td>
+                </tr>
+                <tr><th>床号:</th>
+                    <td>
+                        <input name="ch" type="text"  id="ch" runat="server" />
+                    </td>
+                </tr>
+                <tr><th>姓名:</th>
+                    <td>
+                        <input name="xm" type="text"  id="xm" runat="server" />
+                    </td>
+                </tr>
+                <tr><th>性别:</th>
+                    <td>
+                        <input name="xb" type="text"  id="xb" runat="server" />
+                    </td>
+                </tr>
+                <tr><th>年龄:</th>
+                    <td>
+                        <input type="text" name="nl"  id="nl" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>诊断:</th>
+                    <td>
+                        <input name="zd" type="text"  id="zd" runat="server" />
+                    </td>
+                </tr>
+                <tr><th class="titles">护士资料</th><td></td></tr>
+                <tr>
+                    <th>姓名:</th>
+                    <td>
+                        <input type="text" id="hsxm" name="hsxm"  runat="server" />
+                        <button style="position:absolute;right:4px;" id="searchhs" class="search">搜&nbsp;索</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>性别:</th>
+                    <td>
+                        <input name="hsxb" type="text"  id="hsxb" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>年龄:</th>
+                    <td>
+                        <input name="hsnl" type="text" id="hsnl" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>职称:</th>
+                    <td>
+                        <input name="hszc" type="text"  id="hszc" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>工作年限:</th>
+                    <td>
+                        <input name="hsgznx" type="text"  id="hsgznx" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>层级:</th>
+                    <td>
+                        <input name="hscj" type="text"  id="hscj" runat="server" />
+                    </td>
+                </tr>
+                <tr><th class="titles">损伤情况</th><td></td></tr>
+                <tr>
+                    <th>病人损伤情况:</th>
+                    <td>
+                        <textarea name="brssqk" style="height:3rem; resize: none;" maxlength="150" id="brssqk" runat="server"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>护士损伤情况:</th>
+                    <td>
+                        <textarea name="hsssqk" style=" height:3rem; resize: none;" maxlength="150" id="hsssqk" runat="server"></textarea>
+                    </td>
+                </tr>
+                <tr><th class="titles">简要经过及处理要点</th><td></td></tr>
+                <tr>
+                    <th>简要经过:</th>
+                    <td>
+                        <textarea name="jyjg" style=" height: 3rem; resize: none;" maxlength="150" id="jyjg" runat="server"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>处置要点:</th>
+                    <td> <textarea name="czyd" style=" height:3rem; resize: none;" maxlength="150" id="czyd" runat="server"></textarea>
+                    </td>
+                </tr>
+                <!--<tr><th class="titles">持续质量改进</th><td></td></tr>-->
+                <!--<tr>-->
+                    <!--<th>原因分析:</th>-->
+                    <!--<td>-->
+                        <!--<textarea name="yyfx" runat="server" id="yyfx" style="height: 3rem; resize: none;" maxlength="150"></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<th>整改措施:</th>-->
+                    <!--<td>-->
+                        <!--<textarea name="zgcs" runat="server" id="zgcs" style="height:3rem; resize: none;" maxlength="150"></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<th>大科意见/建议:</th>-->
+                    <!--<td>-->
+                        <!--<textarea name="dkyjjy" runat="server" id="dkyjjy" style=" height:3rem; resize: none;" maxlength="150"></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<th>科室改进效果自评:</th>-->
+                    <!--<td>-->
+                        <!--<textarea name="ksgjxg" runat="server" id="ksgjxg" style="height:3rem; resize: none;" maxlength="150"></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<th>护理质量<br />-->
+                        <!--管理委员<br />-->
+                        <!--会评价</th>-->
+                    <!--<td>-->
+                        <!--<textarea name="glwyhpg" runat="server" id="glwyhpg" style="resize: none;height:3rem;" maxlength="150"></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </section>
+        <div id="bingrenss" hidden="hidden">
+            <table border="1" class="bingrenss" cellspacing="0" cellpadding="0">
+                <tr style="background:#bababa">
+                    <th style="font-weight:bold;width: 65% !important;">科室</th>
+                    <th style="font-weight:bold;">姓名</th>
+                </tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+                <tr><td>11</td><td>11</td></tr>
+            </table>
+        </div>
+        <div id="hushiss">
+            <table border="1" class="hushiss" cellspacing="0" cellpadding="0">
+                <tr style="background:#bababa">
+                    <th style="font-weight: bold;width: 16%">科室</th>
+                    <th style="font-weight: bold;width: 15%">姓名</th>
+                    <th style="font-weight: bold;width: 10%">代码</th>
+                    <th style="font-weight: bold;width: 10%">性别</th>
+                    <th style="font-weight: bold;width: 10%">职称</th>
+                    <th style="font-weight: bold;width: 10%">层级</th>
+                    <th style="font-weight: bold;width: 10%">学历</th>
+                    <th style="font-weight: bold;width: 30%">毕业院校</th>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+                <tr>
+                    <td>中西医结合科</td>
+                    <td>罗婷婷</td>
+                    <td>62CD</td>
+                    <td>女</td>
+                    <td>护士</td>
+                    <td>N0-B</td>
+                    <td>大专</td>
+                    <td>川北医学院</td>
+                </tr>
+            </table>
+        </div>
+        <p style="text-align: center">
+            <input  type="submit" class="btn submit" style="margin:1rem 0rem 1rem 0rem;" value="提交"/>
+            <input  type="button" class="btn submit" style="margin:1rem 0rem 1rem 0rem;" value="预览"/>
+        </p>
+    </div>
+</form>
+</body>
+<!--时间日期控件 star-->
+<script src="js/jquery.date.js"></script>
+<script>
+    $.date('#fsrq');
+    $.date('#sbsj');
+</script>
+<!--时间日期控件 end-->
+<script>
+    $(function(){
+        $("input[type='submit']").click(function(){
+            window.location.href = '';
+            $('.success').addClass('hintshow');
+        });
+        $("input[type='button']").click(function(){
+            window.location.href = '';
+            $('.error').addClass('hintshow');
+        });
+        $('#sjlx').on('change',function(){//时间类型
+            if($(this).val()=='坠床'){
+                $('.ddzcshdj').show();
+                $('.gdqt').hide();
+            }else{
+                $('.ddzcshdj').hide();
+                $('.gdqt').hide();
+            }
+            if($(this).val()=='管道脱落'){
+                $('.gdlx').show();
+                $('.gdqt').hide();
+            }else{
+                $('.gdlx').hide();
+                $('.gdqt').hide();
+            }
+            if($(this).val()=='其他'){
+                $('.sjlxqt').show();
+                $('.gdqt').hide();
+            }else{
+                $('.sjlxqt').hide();
+                $('.gdqt').hide();
+            }
+        });
+        $('#gdlx').on('change',function(){//管道脱落-其它
+            if($(this).val()=='其他'){
+                $('.gdqt').show();
+            }else{
+                $('.gdqt').hide();
+            }
+        });
+        $('#zyh').on('focus',function(){//病人资料-搜索
+            $('#searchbr').fadeIn();
+        });
+        $('#hsxm').on('focus',function(){//护士资料-搜索
+            $('#searchhs').fadeIn();
+        });
+        /*护士信息and病人信息*/
+        $('#searchbr').click(function(e){
+            e.preventDefault();
+            $('#bingrenss').fadeIn();
+        });
+        $('.bingrenss tr').click(function(){
+            $('#bingrenss').fadeOut();
+        });
+        $('#searchhs').click(function(e){
+            e.preventDefault();
+            $('#hushiss').fadeIn();
+        });
+        $('.hushiss tr').click(function(){
+            $('#hushiss').fadeOut();
+        });
+    })
+</script>
+</html>

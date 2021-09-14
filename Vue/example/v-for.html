@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<style>
+    .f>span{
+       border:1px solid red;
+    }
+</style>
+<body>
+    <h1>V-for</h1>
+    <hr>
+    <div class="f">
+        <span>我说一个小傻瓜
+            <span>我是小傻瓜里面的小傻瓜
+                <span>我是小傻瓜里面的小小傻瓜。</span>
+            </span>
+        </span>
+    </div>
+    <ul id="uls">
+        <li v-for="(f,index) in sortStudent">{{index+1}}:{{f.xm}},{{f.age}}</li>
+    </ul>
+</body>
+<script>
+    var app =new Vue({
+        el:"#uls",
+        data:{
+            items:[
+                    {xm:"刘先进",age:"17"},
+                    {xm:"张红群",age:"13"},
+                    {xm:"刘噢鞥",age:"14"},
+                    {xm:"六年级",age:"15"},
+                ]
+        },
+        computed:{
+            sortStudent:function(){
+                return sortByKey(this.items,'age');
+            }
+        }
+    });
+    //数组对象方法排序:
+    function sortByKey(array,key){
+        return array.sort(function(a,b){
+            var x=a[key];
+            var y=b[key];
+            return ((x<y)?-1:((x>y)?1:0));
+        });
+    }
+
+</script>
+</html>  

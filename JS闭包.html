@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body,html{
+        height: 100%;
+    }
+</style>
+<body>
+    
+</body>
+<script>
+    
+    document.body.onclick=function(){
+        checkscope()();
+        console.log(un())
+    }
+    // function f1(){
+    //     var n = 123;
+    //     function f2(){    //f2是一个闭包
+    //         alert(n)
+    //     }    
+    //     return f2();
+    // }
+    // var arr = [1,2,3,4,5,6,4,6];
+    // if(arr){
+    //     for(var f = 0;f<arr.length;f++){
+    //         console.log(arr[f]);
+    //     }
+    // }
+    // console.log(f+"qwer")
+    var scope = "global scope";
+    function checkscope(){
+        var scope='local scope';
+        function f(){
+            console.log(scope);
+        }
+        return f;
+    }
+    var un = (function(){
+        var cont=0;
+        return function(){
+            cont++;
+        }
+    }())
+</script>
+</html>

@@ -1,0 +1,50 @@
+html,body{
+    height: 100%;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.content{
+    height: 100%;
+}
+.content header,.content footer{
+    height: 70px;
+    line-height:70px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+.content header ul{
+    float:right;
+}
+.content header ul li{
+    float: left;
+    list-style: none;
+    padding:0 20px;
+    background:#ddd;
+    margin: 0 10px;
+}
+.content section{
+    height: calc(100% - 141px);
+    display: flex;
+    width: 100%;
+}
+.content section aside{
+    width: 220px;
+    border-right:1px solid #ddd;
+}
+.content section aside dt,dd{
+    line-height:40px;
+    background:cornflowerblue;
+}
+.content section aside dd{
+    background:none;
+    padding-left:30px;
+}
+.content section main{
+    width: calc(100% - 220px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

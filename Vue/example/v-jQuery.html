@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <h1>v-component（组件）</h1>
+    <hr>
+    <div id="app">
+        <p>原本商品的价格是${price}元</p>
+        <p><button>${price}</button></p><!--3.调用组件//native规定外部组件使用构造器内部定义的方法。-->
+    </div>
+</body>
+<script>
+    
+   var app = new Vue({//构造器1
+        delimiters:['${','}'],//改变
+       el:'#app',
+       data:{
+         price:100   
+       },
+       methods:{
+           add:function(){
+               this.price++
+           }
+       },
+       mounted:function(){
+           alert(0);
+           document.querySelector("#app p:first-child").innerHTML="我已经被改变了";
+       }
+   });
+   document.querySelector("button").onclick=function(){
+    app.add();
+   }
+</script>
+</html>  

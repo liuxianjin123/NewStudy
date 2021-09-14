@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe src="" frameborder="0" style="width: 600px;height: 600px;"></iframe>
+</body>
+<script>
+    var num = 10;
+    setInterval(function(){
+        num++;
+        document.querySelector("iframe").setAttribute("src","http://www.dou"+num+".com");
+        console.log("http://www.dou"+num+".com")
+    },2000)
+</script>
+</html>

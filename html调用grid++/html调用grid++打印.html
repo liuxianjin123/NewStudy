@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>锐浪HTML5报表 - 一个最简单的例子</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='../js/jquery-1.11.1.min.js'></script>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi officiis consectetur omnis modi blanditiis
+        accusantium pariatur. Labore repudiandae, magni laborum quas modi molestiae ipsam autem eveniet odio, nam
+        reiciendis non?</p>
+    <div id="report_holder">
+    </div>
+</body>
+<script src="grhtml5-1.0.0beta-min.js"></script>
+<script language="javascript" type="text/javascript">
+    $("p").click(function () {
+        window_onload()
+    });
+    function window_onload() {
+        var jsonText = {
+            "Table": [
+                {
+                    "CustomerID": "HUNGC",
+                    "CompanyName": "五金机械",
+                    "ContactName": "苏先生",
+                    "Address": "德昌路甲 29 号",
+                    "City": "大连",
+                    "Region": "东北",
+                    "Phone": "(053) 5556874"
+                },
+                {
+                    "CustomerID": "CENTC",
+                    "CompanyName": "三捷实业",
+                    "ContactName": "王先生",
+                    "Address": "英雄山路 84 号",
+                    "City": "大连",
+                    "Region": "东北",
+                    "Phone": "(061) 15553392"
+                },
+                {
+                    "CustomerID": "CACTU",
+                    "CompanyName": "威航货运有限公司",
+                    "ContactName": "刘先生",
+                    "Address": "经七纬二路 13 号",
+                    "City": "大连",
+                    "Region": "东北",
+                    "Phone": "(061) 11355555"
+                }
+            ]
+        }
+        //创建报表显示器，参数指定其在网页中的占位标签的ID，关联的报表模板URL，关联的报表数据URL
+        var reportViewer = window.rubylong.grhtml5.insertReportViewer("report_holder", "simple.grf", "simple_json.txt");
+        reportViewer.start(); //启动报表运行，生成报表
+    }
+</script>
+
+</html>

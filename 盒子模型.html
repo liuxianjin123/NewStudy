@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<style>
+    @font-face {
+        font-family: DIN_Condensed_Bold;
+        src: url('/font/DS-DIGI-1.ttf');
+    }
+    .box{
+        background: #000;
+        font-family:DIN_Condensed_Bold;
+        height:100px;
+        margin:20px;
+        border:10px solid red;
+        padding:30px;
+        font-size: 60px;
+        color: aqua;
+        font-weight: bold;
+        transition: all .1s;
+    }
+
+</style>
+    
+<body>
+    <div class="box">在院人数：122333</div>
+    <div class="box"></div>
+</body>
+<script>
+    // var g=`[{q:"20",u:"22"},{q:"12",u:"13"}]`;
+    // localStorage.setItem("aaa",g);
+    // console.log(eval('(' + localStorage.getItem("aaa") + ')'))
+    // function tu(){
+    //     var a,b,c;
+    //     return {a:123,b:'12456',c:'456789'}
+    // }
+    // function test(a){
+    //     alert(a)
+    // }
+    // var f={
+    //     de:function(a){
+    //         console.log(a)
+    //     }
+    // }
+    // console.log(f.de(1))
+    // let s =(e,v)=>{
+    //     console.log(e+v)
+    // }
+   
+    // (function(){
+    //     alert(1);
+    // })();
+    // $(function(){
+    //     s(1,4);
+    // })
+    // for(var i = 0;i<=20;i++){
+    //     console.log(i);
+    // }
+    // console.log(i)
+    setInterval(()=>{
+        document.getElementsByTagName("div")[0].innerText="在院人数："+(Math.random()*9)+(Math.random()*9)
+    },1000);
+    var name='刘先进',age=2345;
+    var obj = {
+        name:'name123',
+        ages:this.age,
+        fun:function(a,b){
+            console.log("姓名："+this.name+"年龄："+this.ages,a+"爱着"+b)
+        }
+    }
+    var fg = {
+        name:'李大嘴',
+        ages:'111'
+    }
+    obj.fun.call(fg,'残剑','飞雪');
+    obj.fun.apply(fg,['残剑','飞雪']);
+    obj.fun.bind(fg,'残剑','飞雪')();
+</script>
+</html>

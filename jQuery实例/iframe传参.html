@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <button class="layui-btn">打开iframe界面</button>
+    <iframe src="" style="width:500px;height:450px;border:1px solid red;" frameborder="0"></iframe>
+</body>
+<script>
+    var obj =[
+        {"age":"123"},
+        {"name":"刘先近"},
+        {"height":"2666"},
+        {"msg:":"傻孩子哦"}
+    ]
+    $(".layui-btn").click(function(){
+        $("iframe").attr("src","iframeChild.html?obj="+obj.toString()).show();
+    });
+    console.log("如果你需要一个简短的回答")
+    console.log("如果你需要一个简短的回答，即")
+    console.error("如果你需要一个简短的回答，即 ")
+    console.log("如果你需要一个简短的回答，即 你习")
+    console.log("如果你需要一个简短的回答，即 你习惯")
+    console.log("如果你需要一个简短的回答，即 你习惯哪")
+    console.log("欢迎进入我们的简历页面:http://www.baidu.com")
+
+</script>
+</html>

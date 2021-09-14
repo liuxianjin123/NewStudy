@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function getNextDate() { //当前时间+1或者-1
+        var dd = new Date('2020-01-01');
+        console.log(dd.toLocaleDateString()+" "+dd.toLocaleTimeString())
+        dd.setDate(dd.getDate()+0);//天数加50
+        dd.setFullYear(dd.getFullYear()+0)//年份加20
+        dd.setHours(dd.getHours()+0)//小时加20
+        dd.setMinutes(dd.getMinutes()+0)//分钟加30
+        dd.setSeconds(dd.getSeconds()+0)//秒数加50
+        var year =dd.getFullYear();
+        var yue =dd.getMonth()<10?"0"+parseInt(dd.getMonth()+1):dd.getMonth()+1
+        var day =dd.getDate()<10?"0"+dd.getDate():dd.getDate();
+        var Hour =dd.getHours()<10?"0"+dd.getHours():dd.getHours();
+        var Minute =dd.getMinutes()<10?"0"+dd.getMinutes():dd.getMinutes();
+        var Second =dd.getSeconds()<10?"0"+dd.getSeconds():dd.getSeconds();
+        var week =dd.getDay();
+        var xq  =['星期天','星期一','星期二','星期三','星期四','星期五','星期六',]
+        console.log(year+"-"+yue+"-"+day+" "+Hour+":"+Minute+":"+Second+" "+xq[week])
+        console.log(dd.getTime())
+    };
+    getNextDate()
+</script>
+
+</html>

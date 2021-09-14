@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    .layui-layer-shade {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 50%);
+        display: none;
+        z-index: 122223;
+    }
+
+    .layui-anim.layui-icon {
+        height: 40px;
+        width: 40px;
+        font: normal bold 40px/40px '微软雅黑';
+        border-radius: 40px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -20px 0 0 -20px;
+        color: red;
+
+    }
+</style>
+
+<body>
+    <button class="layui-btn layui-btn-parmray" onclick="getData()"><i class="layui-icon layui-icon-print"></i>
+        getData()</button>
+    <div class="layui-layer-shade" id="layui-layer-shade2" times="2">
+        <i class="loading layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63d;</i>
+    </div>
+    </div>
+    <table class="layui-hide" id="test" lay-filter="test" style="width:100%"></table>
+</body>
+<script src='../layui/layui.all.js'></script>
+<script>
+    var table = layui.table;
+    ;(function() {
+        $.ajax({
+            type: "POST",
+            url: "https://api.apiopen.top/getJoke?page=1&count=100&type=video",
+            dataType: "JSON",
+            beforeSend: function () {
+                console.log("发起请求之前！");
+                $(".layui-layer-shade").fadeIn();
+            },
+            success: function (msg) {
+                console.log(msg.result);
+                table.render({
+                    elem: '#test'
+                    , height: 700
+                    , align: 'center'
+                    , toolbar: true
+                    , title: '用户数据表'
+                    , cols: [[
+                        { type: 'numbers',title: '序号',fixed:'left' ,width:'70'}
+                        , { field: 'comment', title: 'ID',width:'70', }
+                        , { field: 'down',title: '用户名' , width:'70'}
+                        , { field: 'forward',title: '邮箱' , width:'70'}
+                        , { field: 'header', title: '积分',width:'170' }
+                        , { field: 'name',title: '性别',width:'170' }
+                        , { field: 'passtime',title: '登入次数', width:'170' }
+                        , { field: 'text', title: '签名',width:'170' }
+                        , { field: 'top_comments_content',title: '城市' , width:'170'}
+                        , { field: 'top_comments_header', title: 'IP',width:'170' }
+                        , { field: 'top_comments_uid',title: '加入时间' ,width:'40%'}
+                    ]]
+                    , data: msg.result
+                    , page: true
+                    , response: {
+                        statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+                    }
+                    ,limits:[10,50,msg.result.length]
+                    , limit: 50  //一页显示10条数据
+                    , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据，res为从url中get到的数据
+                        var result;
+                        console.log(this);
+                        console.log(JSON.stringify(res));
+                        if (this.page.curr) {
+                            result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
+                        }
+                        else {
+                            result = res.data.slice(0, this.limit);
+                        }
+                        return {
+                            "code": res.code, //解析接口状态
+                            "msg": res.msg, //解析提示文本
+                            "count": res.count, //解析数据长度
+                            "data": result //解析数据列表
+                        };
+                    }
+                });
+            },
+            error: function () {
+
+            },
+            complete: function () {
+                $(".layui-layer-shade").fadeOut();
+                console.log("无论失败还是成功整个过程都已经完成！")
+            }
+        })
+    })()
+</script>
+
+</html>

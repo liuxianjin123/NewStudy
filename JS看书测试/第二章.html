@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show" style="border:1px solid red;">我是body内的唯一的元素!</p>
+    <input type="txt" id="txt"/>
+</body>
+<script>
+window.onload=function(){
+  var otxt=document.getElementById("txt");
+  var oshow=document.getElementById("show");
+  var count=0;
+  if(document.all){
+     otxt.onpropertychange=function(){
+       count=count+1;
+       oshow.innerHTML=count;
+     }
+  }else{
+    otxt.oninput=function(){
+      count=count+1;
+      oshow.innerHTML=count;
+    }
+  }
+}
+</script>
+</html>

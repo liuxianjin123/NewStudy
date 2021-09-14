@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <h1>v-component（组件的父子关系）</h1>
+    <hr>
+    <div id="app">
+        <sendval :here="msg"></sendval>
+        <button @click="changes()">点击我试试</button>
+    </div>
+</body>
+<script>
+    var sunzi = {
+        template:`<h2>我是h1里面的子元素h2</h2>`,  //先定义子组件的模板
+    }
+   var outsideComponent={//可以现在构造器外部先定义好局部组件和组件的属性，然后在构造器中引用。
+        template:`
+                <h1 style="color:red;">看看传值成功了没？{{here}}
+                    <sunzi></sunzi>
+                </h1>`,
+        props:['here'],
+        components:{
+            sunzi:sunzi//再在申明父组件时调用子组件，
+        }
+   }
+   var app = new Vue({//构造器1
+       el:'#app',
+       data:{
+           msg:'我就是需要传值给组件的这个属性。'
+       },
+       components:{//定义局部组件，可定义多个局部组件.组件的命名不能是驼峰写法，
+            "sendval":outsideComponent
+       },
+       methods:{
+           changes(){
+               this.msg='我是给组件传入的值，我已经被改变。'
+           }
+       }
+   });
+</script>
+</html>  

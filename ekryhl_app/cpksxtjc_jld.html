@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <!--开启全屏-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--隐藏状态栏/设置状态栏颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--UC强制竖屏-->
+    <meta name="screen-orientation" content="portrait">
+    <!--QQ强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <!--QQ强制全屏-->
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/ekryhljld_style.css"/>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/style.js"></script>
+    <title>床旁快速血糖监测记录</title>
+</head>
+<style>
+    body,html{
+        height: 100%;
+    }
+    .btn{
+        position:fixed;
+        left:50%;
+        margin-left:-2rem;
+    }
+    .duolie div{
+        display: inline-block;
+        overflow: hidden;
+    }
+    .selects{
+        width:7rem;
+    }
+    .content table tr th{
+        width: 35% !important;
+    }
+    .rlmcs{
+        width: 100%;
+        height:100%;
+        background: rgba(0,0,0,0.3);
+        position:fixed;
+        top:0px;
+        left:0px;
+        z-index: 999;
+        display:none;
+    }
+    .gdhlmc_selects{
+        width: 100%;
+        height: 93%;
+        background: #fff;
+    }
+    .gdhlmc_selects button{
+        width:50%;
+        outline: none;
+        border:none;
+        height:7%;
+        font-size: 0.8rem;
+        color:#fff;
+    }
+    .gdhlmc_selects .cancel{
+        background: orangered;
+    }
+    .gdhlmc_selects .ok{
+        background: lawngreen;
+    }
+    .duolie{
+        overflow-x:auto;
+    }
+</style>
+<body>
+<form action="">
+    <div class="content">
+        <h3 class="titlemsg">床旁快速血糖监测记录</h3>
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>科别:</th>
+                <td> <input type="text" name="Department"  runat="server" id="ks" /></td>
+            </tr>
+            <tr>
+                <th>床号:</th>
+                <td><input name="BedNo" type="text"  runat="server" id="ch" /></td>
+            </tr>
+            <tr>
+                <th>姓名:</th>
+                <td><input name="Name" type="text" value="<%=brxx.xm %>" /></td>
+            </tr>
+            <tr>
+                <th>性别:</th>
+                <td><input name="Sex" type="text"  value="<%=brxx.xb %>" /></td>
+            </tr>
+            <tr>
+                <th>年龄:</th>
+                <td><input name="Age" type="text"  runat="server" id="nl" /></td>
+            </tr>
+            <tr>
+                <th>住院号:</th>
+                <td><input name="HospitalNumber" type="text"value="<%=brxx.tmh %>" /></td>
+            </tr>
+            <tr>
+                <th>诊断:</th>
+                <td><input name="diagonal" type="text" value="<%=brxx.zd %>" /></td>
+            </tr>
+            <tr>
+                <th>日期:</th>
+                <td><input name="Date1" id="Date1"  type="text"  data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr><th style="font-weight: bold;">空腹血糖</th><td></td></tr>
+            <tr>
+                <th>时间:</th>
+                <td><input name="FPGTime1" id="FPGTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>血糖值(mmol/L):</th>
+                <td> <input name="FPG1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>签名:</th>
+                <td style="border-bottom:1px solid lightgray"><img id="FPGAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr><th style="font-weight: bold;">三餐后两小时血糖</th><td></td></tr>
+            <tr>
+                <th>早(时间):</th>
+                <td><input name="MorningP2hPGTime1" id="MorningP2hPGTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>早(血糖值(mmol/L):</th>
+                <td> <input name="MorningP2hPG1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>早(签名):</th>
+                <td style="border-bottom:1px solid lightgray"><img id="MorningP2hPGAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr>
+                <th>中(时间):</th>
+                <td><input name="NoonP2hPGTime1" id="NoonP2hPGTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>中(血糖值(mmol/L):</th>
+                <td> <input name="NoonP2hPG1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>中(签名):</th>
+                <td style="border-bottom:1px solid lightgray"><img id="NoonP2hPGAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr>
+                <th>晚(时间):</th>
+                <td><input name="NightP2hPGTime1" id="NightP2hPGTime1" type="number" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>晚(血糖值(mmol/L):</th>
+                <td> <input name="MNightP2hPG1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>晚(签名):</th>
+                <td style="border-bottom:1px solid lightgray"><img id="NightP2hPGAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr><th style="font-weight: bold;">随机血糖</th><td></td></tr>
+            <tr>
+                <th>时间:</th>
+                <td><input name="OneGLUTime1" id="OneGLUTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>血糖值(mmol/L):</th>
+                <td> <input name="OneGLU1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>签名:</th>
+                <td style="border-bottom:1px solid lightgray"><img id="OneGLUAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr>
+                <th>时间:</th>
+                <td><input name="TwoGLUTime1" id="TwoGLUTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>血糖值(mmol/L):</th>
+                <td> <input name="TwoGLU1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>签名:</th>
+                <td style="border-bottom:1px solid lightgray"><img id="TwoGLUAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+            <tr>
+                <th>时间:</th>
+                <td><input name="ThreeGLUTime1" id="ThreeGLUTime1" type="text" data-options="{'type':'hh:mm','beginYear':2010,'endYear':2088}"/></td>
+            </tr>
+            <tr>
+                <th>血糖值(mmol/L):</th>
+                <td> <input name="ThreeGLU1" type="number" /></td>
+            </tr>
+            <tr>
+                <th>签名:</th>
+                <td style="border-bottom:1px solid lightgray"><img id="ThreeGLUAutograph1" src="#" style="height:1.7rem;width: 4rem;border:1px solid greenyellow;" /></td>
+            </tr>
+
+        </table>
+        <br/>
+        <input class="submit btn" type="submit" style="text-align: center" value="保&nbsp;&nbsp;存" id="btn"/>
+    </div>
+</form>
+</body>
+<!--时间日期控件 star-->
+<script src="js/jquery.date.js"></script>
+<script>
+    $.date('#FPGTime1');
+    $.date('#Date1');
+    $.date('#MorningP2hPGTime1');
+    $.date('#NoonP2hPGTime1');
+    $.date('#NightP2hPGTime1');
+    $.date('#OneGLUTime1');
+    $.date('#TwoGLUTime1');
+    $.date('#ThreeGLUTime1');
+</script>
+<!--时间日期控件 end-->
+<script>
+//    $("input.week").each(function(){//给所有的input绑定事件
+//        $(this).click(function(){
+//            var l=[]; //创建空数组l
+//            $("input.week:checked").each(function(i){l[i]=this.value});
+//            //将所有的选中的值存放l
+//            $("#gdhlmc").val(l.join(","));//将数据值联合字符串给显示对象附值
+//        })
+//    })
+    $(function(){
+        $(document.body).css({
+            "overflow-x":"hidden"
+        });
+    });
+    /*输入非数字会清空*/
+    function clearNoNum(obj){
+        obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符
+        obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');//只能输入两个小数
+        if(obj.value.indexOf(".")< 0 && obj.value !=""){//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+            obj.value= parseFloat(obj.value);
+        }
+    }
+    $("input[type='number']").focus(function(){
+        clearNoNum(this);
+    });
+    $("input[type='number']").blur(function(){
+        clearNoNum(this);
+    });
+</script>
+</html>

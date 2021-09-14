@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        height: 200px;
+        border: 1px solid red;
+        overflow: hidden;
+    }
+    ul{
+        width: max-content;
+    }
+    ul li {
+
+        height: 200px;
+        width: 600px;
+        background: red;
+        list-style: none;
+        font: normal 900 50px/200px '宋体';
+        float: left;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var num = 0;
+    var html = $("ul").html();
+    var timer = setInterval(function () {
+        num--;
+        $("ul").css({ "margin-left": +num + "px" });
+        var ff = ($("ul li").length*$("ul li:first").width()) - $("body").width();
+        if (Math.abs($("ul").css("margin-left").replace("px", "")) > ff) {
+            num=num
+            $("ul").append(html);
+        }
+    }, 10);
+</script>
+
+</html>

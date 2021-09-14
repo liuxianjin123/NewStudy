@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>跌倒/坠床风险告知书</title>
+    <!--开启全屏-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--隐藏状态栏/设置状态栏颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--UC强制竖屏-->
+    <meta name="screen-orientation" content="portrait">
+    <!--QQ强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <!--QQ强制全屏-->
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/ekryhljld_style.css"/>
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<style>
+    .container input{
+        border:none;
+        border-bottom:1px solid #000;
+    }
+    .container h1{
+        text-align: center;
+        padding-top:1rem;
+        font-size:1.1rem;
+    }
+    .container{
+        font-size:0.8rem;
+        box-sizing: border-box;
+        padding:0.7rem;
+    }
+    .container .first{
+        margin:3rem 0rem 2rem 0rem;
+    }
+    .container .last{
+        line-height: 1.8rem;
+    }
+    .container .parent-qz{
+        margin-top:10rem;
+        text-align:right;
+    }
+    .container .parent-qz input{
+        width:7rem;
+    }
+</style>
+<body>
+<div class ="container">
+    <h1>跌倒/坠床风险告知书</h1>
+    <p class="first">尊敬患者（家属）：</p>
+    <p class="last">&nbsp;&nbsp;根据患者的病情，依据跌倒/坠床危险因素评估表评分为
+        <input type="text" value ="" id ="score" style =" width:1.6rem;text-align:center;font-size:0.8rem;font-weight:700;">分，
+        由于评分＞5分以上为坠床/跌倒高危风险人群， 易发生坠床/跌倒的危险，护士已对病人（或家 属）告知病人目前病情、
+        可能发生危险的原因以及防护措施，病人（或家属） 表示理解，并愿意配合医务人员做好相关防护措施。
+    </p>
+    <div class="parent-qz">
+        <span>患儿家属确认签字:</span><input type="text" name="name"  class="jsqz" value=""/><br><br>
+        <span>告知时间:</span><input id="Cdate"  type="text" data-options="{'type':'YYYY-MM-DD hh:mm','beginYear':2010,'endYear':2088}"/>
+    </div>
+</div>
+</body>
+<!--时间日期控件 star-->
+<script src="js/jquery.date.js"></script>
+<script>
+    $.date('#Cdate');
+    //    function setDate(date,el){
+    //        if(el.attr('id') == 'Cdate'){
+    //            return date.substr(date.indexOf('-')+1);
+    //        }else{
+    //            return date;
+    //        }
+    //    }
+</script>
+<!--时间日期控件 end-->
+</html>

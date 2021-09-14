@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Guitar</button>
+</body>
+<script>
+   document.getElementsByTagName("button")[0].onclick = function(){
+        debugger;
+        var audio = document.createElement("audio");
+        console.log(parseInt(Math.random()*2))
+        parseInt(Math.random()*1)==1?audio.src = "2.ogg":audio.src = "1.mp3"
+        audio.play();
+    };
+</script>
+</html>

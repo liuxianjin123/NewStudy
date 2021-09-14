@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+     <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+      <script  src="Vue/vue.js"></script>
+    <script  src="element-ui/lib/index.js"></script>
+    
+
+</head>
+<style>
+
+
+  </style>
+<body>
+    <div id="app">
+        <el-tabs type="border-card">
+            <el-tab-pane label="用户管理" style="height:300px;">用户管理</el-tab-pane>
+            <el-tab-pane label="配置管理" style="height:300px;">配置管理</el-tab-pane>
+            <el-tab-pane label="角色管理" style="height:300px;">角色管理</el-tab-pane>
+            <el-tab-pane label="定时任务补偿" style="height:300px;">定时任务补偿</el-tab-pane>
+          </el-tabs>
+          <div style="margin-bottom: 20px;">
+            <el-button
+              size="small" @click="addTab(editableTabsValue)">
+              add tab
+            </el-button>
+          </div>
+          <el-tabs v-model="editableTabsValue" type="card"  @tab-remove="removeTab" stretch="true" style="width:300px;">
+            <el-tab-pane
+              v-for="(item, index) in editableTabs"
+              :key="item.name"
+              :label="item.title"
+              :name="item.name"
+              closable="false"
+            >
+              {{item.content}}
+            </el-tab-pane>
+          </el-tabs>
+    </div>
+</body>
+<script>
+  var app = new Vue({
+    el:'#app',
+    data:{
+        editableTabsValue: '1',
+        editableTabs: [{
+          title: 'Tab 1',
+          name: 's1',
+          content: '我是第一个tab'
+        }],
+        tabIndex: 1
+    },
+    methods:{
+      addTab(targetName) {
+        let newTabName = ++this.tabIndex;//让原本是1的tabIndex++;先自加再取值(这时候tabIndex==2)
+        this.editableTabs.push({//因为table的数据数组是实时动态的随意这里直接往table里面push，页面就会实时渲染。
+          title: 'New Tab'+newTabName,//2
+          name: newTabName,//2
+          content: 'New Tab content'+newTabName//2
+        });
+        this.editableTabsValue = newTabName;//将原本是1的editableTabsValue复制成editableTabsValue+=1；这时候就完成了table容器的新增、
+      },
+      removeTab(targetName) {
+        let tabs = this.editableTabs;//这里删除时获取当前的editableTabs，也就是装数据的table数组
+        let activeName = this.editableTabsValue;//这里获取当前的editableTabsValue，也就是不管删除了多少个，只获取当前的editableTabsValue(假如说目前是2)
+        if (activeName === targetName) {//如果2==2
+          tabs.forEach((tab, index) => {
+            if (tab.name === targetName) {
+              let nextTab = tabs[index + 1] || tabs[index - 1];
+              if (nextTab) {
+                activeName = nextTab.name;
+              }
+            }
+          });
+        }
+        this.editableTabsValue = activeName;
+        this.editableTabs = tabs.filter(tab => tab.name !== targetName);//反正意思就是把当前符合条件的editableTabs给过滤掉。
+      }
+    }
+  })
+
+</script>
+</html>

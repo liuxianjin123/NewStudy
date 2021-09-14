@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    * {
+        border: 1px solid red;
+    }
+</style>
+
+<body>
+    <div onclick="test(event)">
+        <p>我是第一个子元素</p>
+        <ul>
+            <li>我是第一个子子元素</li>
+            <li>我是第二个子子元素</li>
+            <li>我是第三个子子元素</li>
+            <li>我是第四个子子元素</li>
+        </ul>
+    </div>
+</body>
+<script>
+    function test(event) {
+        console.log(event)
+        if (event.target.tagName == "LI") {
+            alert(1);
+
+        }
+    }
+    var test = null
+    var v = 666;
+    console.log(v)
+    delete v;
+    console.log(v)
+</script>
+
+</html>

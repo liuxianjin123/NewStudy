@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    p{
+        width: 500px;
+        height:150px;
+        border:1px solid red;
+        text-overflow: ellipsis;
+    }
+</style>
+<body>
+    <button>Click Me</button>
+    <div class="d">
+        <section>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p class="ioto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum alias ad repellendus beatae cumque mollitia totam, rerum pariatur voluptatum eaque, officiis sunt quos veritatis similique reiciendis, praesentium est tempora porro.</p>
+        </div>
+    </section>
+    </div>
+</body>
+<script>
+    $("p").one("click",function(){//本次页面加载规定当前点击元素只执行一次指定的函数。
+        alert(1);
+        $(this).empty();
+    });
+</script>
+</html>

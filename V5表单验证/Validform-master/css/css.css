@@ -1,0 +1,271 @@
+﻿/*=====================以下部分是Validform必须的====================*/
+.Validform_checktip {
+	margin-left: 8px;
+	line-height: 20px;
+	height: 20px;
+	overflow: hidden;
+	color: #999;
+	font-size: 12px;
+}
+
+.Validform_right {
+	color: #71b83d;
+	padding-left: 20px;
+	background: url(valid_icons.png) no-repeat -40px -20px;
+}
+
+.Validform_wrong {
+	color: #ddd;
+	padding-left: 20px;
+	white-space: nowrap;
+	background: url(valid_icons.png) no-repeat -20px -40px;
+}
+
+.Validform_loading {
+	padding-left: 20px;
+	background: url(icon_onload.gif) no-repeat left center;
+}
+/*.Validform_error{ background:#FEFBD3; }*/
+
+#Validform_msg {
+	color: #7d8289;
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+	width: 280px;
+	-webkit-box-shadow: 2px 2px 3px #aaa;
+	-moz-box-shadow: 2px 2px 3px #aaa;
+	background: #fff;
+	position: absolute;
+	top: 0px;
+	right: 50px;
+	z-index: 99999;
+	display: none;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+	box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#Validform_msg .iframe {
+	position: absolute;
+	left: 0px;
+	top: -1px;
+	z-index: -1;
+}
+
+#Validform_msg .Validform_title {
+	position: relative;
+	line-height: 35px;
+	height: 35px;
+	text-align: left;
+	font-weight: bold;
+	padding: 0 10px;
+	color: #fff;
+	background: #33B5E5;
+}
+
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited {
+	line-height: 30px;
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	color: #fff;
+	text-decoration: none;
+}
+
+#Validform_msg a.Validform_close:hover {
+	color: #ccc;
+}
+
+#Validform_msg .Validform_info {
+	padding: 10px;
+	border: 1px solid #bbb;
+	border-top: none;
+	text-align: left;
+}
+/*=====================以上部分是Validform必须的====================*/
+
+div.Pager {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei",Verdana;
+	font-size: 12px;
+}
+
+div.Pager a,div.Pager span {
+	display: inline-block;
+	margin: 0 0 0 -1px;
+	padding: 4px 12px;
+	line-height: 20px;
+	height: 20px;
+	border: 1px solid #e1e1e1;
+	background: #fff;
+	color: #333;
+	text-decoration: none;
+}
+
+div.Pager span:first-child {
+	border-left: 1px solid #e1e1e1;
+}
+
+div.Pager a:hover {
+	color: #666;
+	background: #eee;
+}
+
+div.Pager span.current {
+	color: #fff;
+	background: #488FCD;
+	border-color: #488FCD;
+}
+
+div.Pager span.disabled {
+	color: #999;
+	background: #fff;
+}
+
+/*表单样式*/
+.rule-single-select div {
+	width: 310px;
+}
+
+.Validform_error {
+	-moz-box-shadow: 0px 1px 0px #f6675d!important;
+	-webkit-box-shadow: 0px 1px 0px #f6675d!important;
+	box-shadow: 0px 1px 0px #f6675d!important;
+}
+
+.Validform_error:focus {
+	-moz-box-shadow: 0px 2px 0px #f6675d!important;
+	-webkit-box-shadow: 0px 2px 0px #f6675d!important;
+	box-shadow: 0px 2px 0px #f6675d!important;
+}
+
+.Validform_succ {
+	-moz-box-shadow: 0px 1px 0px #67bd6a!important;
+	-webkit-box-shadow: 0px 1px 0px #67bd6a!important;
+	box-shadow: 0px 1px 0px #67bd6a!important;
+}
+
+.Validform_succ:focus {
+	-moz-box-shadow: 0px 2px 0px #67bd6a!important;
+	-webkit-box-shadow: 0px 2px 0px #67bd6a!important;
+	box-shadow: 0px 2px 0px #67bd6a!important;
+}
+
+input[type=text],textarea {
+	outline: none!important;
+	-webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+	-moz-box-shadow: 0px 1px 0px #9d9d9d;
+	-webkit-box-shadow: 0px 1px 0px #9d9d9d;
+	box-shadow: 0px 1px 0px #9d9d9d;
+}
+
+input {
+	border: none!important;
+}
+
+textarea {
+	border-bottom: none!important;
+}
+
+.rule-single-select {
+	-moz-box-shadow: 0px 1px 0px #9d9d9d;
+	-webkit-box-shadow: 0px 1px 0px #9d9d9d;
+	box-shadow: 0px 1px 0px #9d9d9d;
+}
+
+.tab-content.noPadding {
+	padding: 0px;
+}
+
+.frmbottom24680 {
+	text-align: center;
+	margin-top: 10px;
+	padding-bottom: 20px;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+}
+
+.Validform_checktip1 {
+	width: max-content;
+	word-break: keep-all;
+	background-color: rgb(51,55,64);
+	position: absolute;
+	margin-top: -30px;
+	padding: 0px 10px;
+	border-radius: 3px;
+	color: #CCC;
+	left: auto;
+	top: auto;
+	cursor: Default;
+	font-family: "Microsoft YaHei";
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+	z-index: 7;
+}
+
+.Validform_checktip1:after {
+	content: '';
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-top-color: #333740;
+    position: absolute;
+    top: 0;
+    left: 8px;
+    margin-top: 25px;
+}
+
+.Validform_checktip1.sbl {
+	margin-top: 42px;
+}
+
+.Validform_checktip1.sbl:after {
+	background: url(/css/bb3.png) no-repeat;
+	margin-top: -11px;
+}
+
+.input-range {
+	position: relative
+}
+
+.input-range input[type=range] {
+	position: relative;
+	width: 100%;
+	height: 2px;
+	margin: 17px 0;
+	padding: 0;
+	cursor: pointer;
+	border: 0;
+	border-radius: 3px;
+	outline: 0;
+	background-color: #999;
+	-webkit-appearance: none!important
+}
+
+.input-range input[type=range]::-webkit-slider-thumb {
+	width: 28px;
+	height: 28px;
+	border-color: #0062cc;
+	border-radius: 50%;
+	background-color: #007aff;
+	background-clip: padding-box;
+	-webkit-appearance: none!important
+}
+
+.input-range .iptrange-tooltip {
+	font-size: 36px;
+	line-height: 64px;
+	position: absolute;
+	z-index: 1;
+	top: -70px;
+	width: 64px;
+	height: 64px;
+	text-align: center;
+	opacity: .8;
+	color: #333;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background-color: #fff;
+	text-shadow: 0 1px 0 #f3f3f3
+}

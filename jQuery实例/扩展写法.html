@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .dt {
+        color: reed;
+    }
+    
+    .dt li {
+        float: left;
+        width: auto;
+        padding: 6px 8px;
+        border: 2px solid #ddd;
+        margin: 2px;
+        list-style: none;
+        user-select: none;
+        transition: all .2s;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+</style>
+
+<body>
+    <p>我是一个大哥哥</p>
+    <div></div>
+    <input type="text">
+</body>
+<script>
+    (function($) {
+        $.fn.extend({
+            "boid": function() {
+                return this.css({
+                    "border": "1px solid #1e9fff",
+                    "padding": "5px",
+                    "display": "inline-block"
+                });
+            },
+            "changeText": function(msg) {
+                return this.html(this.html() + msg)
+            }
+        });
+    })(jQuery)
+    $.fn.lookThis = function() {
+        console.log(this)
+        var _this = this;
+        var html = `<ul class="dt">`;
+        for (var i = 1; i <= 10; i++) {
+            html += `<li>我是动态创建的第${i}个li<span>二了</span></li>`;
+        }
+        html += `</ul>`
+        _this.html(html);
+        _this.find("li").click(function() {
+            if ($(this).css("border-color") == "rgb(221, 221, 221)") {
+                $(this).css({
+                    "border-color": "#1e9fff"
+                });
+            } else {
+                $(this).css({
+                    "border-color": "rgb(221, 221, 221)"
+                });
+            }
+        });
+    }
+    $("p,div").boid().lookThis();
+    $("li").click(function() {
+        console.log(getComputedStyle(this.parentNode.parentNode).paddingRight, this.firstChild);
+    })
+    $.fn.datetimepicker = function(opt) {
+        console.log(opt)
+        $("body").append(`<span><button onclick='alert(1)'></button></span>`)
+        console.log($(this).prop('outerHTML'))
+    }
+    $("input").click(function() {
+        $(this).datetimepicker({
+            datepicker: false
+        }); //参数
+    });
+</script>
+
+</html>

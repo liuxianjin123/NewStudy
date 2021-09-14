@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function fact(num){ 
+    if (num<=1){ 
+        return 1; 
+    }else{ 
+        console.log(num);
+        console.log(arguments.callee(num-1));
+        return num*arguments.callee(num-1); //此处更改了。 
+        
+    } 
+} 
+var anotherFact = fact;  
+fact = null; 
+alert(anotherFact(4)); //结果为24. 
+</script>
+</html>

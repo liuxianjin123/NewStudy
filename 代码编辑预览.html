@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <textarea name="niuniu" id="" cols="30" rows="10">
+        &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+        &lt;title&gt;layui 调试预览&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;ul&gt;
+                &lt;li&gt;1&lt;/li&gt;
+                &lt;li&gt;1&lt;/li&gt;
+                &lt;li&gt;55&lt;/li&gt;
+                &lt;li&gt;34&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/body&gt;
+    </textarea>
+    <iframe src="" frameborder="0" height="500" width="500" style="border:1px solid greenyellow;"></iframe>
+    <button type="button" class="layui-btn"> 455456456456456</button>
+</body>
+
+<script>
+    let $ = layui.$;
+    $("button").click(function() {
+        console.log($("textarea").html().replaceAll("&lt;", "<").replaceAll("&gt;", ">"))
+        console.log($("iframe").find("html"))
+        $("iframe").find("html").html($("textarea").html().replaceAll("&lt;", "<").replaceAll("&gt;", ">"))
+    })
+</script>
+
+</html>

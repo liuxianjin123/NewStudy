@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<style>
+    @font-face {font-family: DIN_Condensed_Bold;
+    src: url('/font/DS-DIGI-1.ttf');}
+    .box{
+        background: #000;
+        font-family:DIN_Condensed_Bold;
+        height:300px;
+        margin:20px;
+        width:300px;
+        padding:30px;
+        font-size: 30px;
+        color: aqua;
+        font-weight: bold;
+        user-select: none;
+        position: absolute;
+    }
+
+</style>
+    
+<body>
+    <div class="box">在院人数：122333</div>
+</body>
+<script> 
+    let isCacheSupported = 'caches' in window;
+    console.log(isCacheSupported)
+    // var lastClientX = 0;
+    // var lastClientY = 0;
+    // var count = 0;
+    // var addCommandCard = document.getElementsByClassName("box")[0];
+    // addCommandCard.addEventListener('mousemove', function() {
+    //     if(arguments[0].buttons == 1) {
+    //         addCommandCard.style.cursor = "default";
+    //         arguments[0].preventDefault();
+    //         if(count == 0) {
+    //             lastClientX = arguments[0].clientX;
+    //             lastClientY = arguments[0].clientY;
+    //             count++;
+    //         } else {
+    //             addCommandCard.style.left = addCommandCard.offsetLeft + arguments[0].clientX - lastClientX + "px";
+    //             addCommandCard.style.top = addCommandCard.offsetTop + arguments[0].clientY - lastClientY + "px";
+    //             lastClientX = arguments[0].clientX;
+    //             lastClientY = arguments[0].clientY;
+    //             count++;
+    //         }
+    //     }
+    // });
+    // var g=`[{q:"20",u:"22"},{q:"12",u:"13"}]`;
+    // localStorage.setItem("aaa",g);
+    // console.log(eval('(' + localStorage.getItem("aaa") + ')'))
+    // function tu(){
+    //     var a,b,c;
+    //     return {a:123,b:'12456',c:'456789'}
+    // }
+    // function test(a){
+    //     alert(a)
+    // }
+    // var f={
+    //     de:function(a){
+    //         console.log(a)
+    //     }
+    // }
+    // console.log(f.de(1))
+    // let s =(e,v)=>{
+    //     console.log(e+v)
+    // }
+   
+    // (function(){
+    //     alert(1);
+    // })();
+    // $(function(){
+    //     s(1,4);
+    // })
+    // for(var i = 0;i<=20;i++){
+    //     console.log(i);
+    // }
+    // console.log(i)
+    var move = false;
+    var position=null;
+    var f = document.getElementsByClassName("box")[0];
+    f.onmousedown=function(e){
+        console.log(this.innerText="鼠标按下");
+        move=true;
+    }
+    f.onmousemove=function(e){
+        if(move){
+             this.innerText="移动中";
+             this.style.left = (e.clientX-(parseInt(window.getComputedStyle(this).width)/1))+"px";
+             this.style.top = (e.clientY-(parseInt(window.getComputedStyle(this).height)/1))+"px";
+        }
+    }
+    f.onmouseup=function(e){
+         console.log(this.innerText="停止移动");
+         move=false;
+    }
+    // setInterval(()=>{
+    //     document.getElementsByTagName("div")[0].innerText="在院人数："+(Math.random()*9)+(Math.random()*9)
+    // },1000);
+    var name='刘先进',age=2345;
+    var obj = {
+        name:'name123',
+        ages:this.age,
+        fun:function(a,b){
+            console.log("姓名："+this.name+"年龄："+this.ages,a+"爱着"+b)
+        }
+    }
+    var fg = {
+        name:'李大嘴',
+        ages:'111'
+    }
+    obj.fun.call(fg,'残剑','飞雪');
+    obj.fun.apply(fg,['残剑','飞雪']);
+    obj.fun.bind(fg,'残剑','飞雪')();
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+    <div class="a1" id="a1"><span>一种1i <i>123456</i></span><span>一种21</span><span>一种13</span><span>一种14</span></div>
+    <div class="a2"><span>222种1</span><span style="border:1px solid red;margin: 120px;">一12122种21</span><span>一2种13</span><span>一2种14</span>
+    </div>
+</body>
+<script>
+var a1 = document.querySelector(".a2").firstChild.nextSibling.getBoundingClientRect();
+var a2 = document.querySelector(".a2").firstChild.nextSibling.getClientRects();
+var span = document.querySelector('span');
+console.log(span.nodeName)
+console.log(span.nodeName,span.nodeType)
+console.log(span.nodeName,span.nodeType,span.nodeValue)
+console.log(span.nodeName,span.nodeType,span.nodeValue,span.baseURI)
+console.log(span.nodeName,span.nodeType,span.nodeValue,span.baseURI,span.parentNode)
+console.log(span.nodeName,span.nodeType,span.nodeValue,span.baseURI,span.parentNode,span.parentElement)
+console.log(span.nodeName,span.nodeType,span.nodeValue,span.baseURI,span.parentNode,span.parentElement,span.childNodes)
+console.log(span.nodeName,span.nodeType,span.nodeValue,span.baseURI,span.parentNode,span.parentElement,span.childNodes,span.children)
+console.log(document.querySelector('ul').children)
+var newItem=document.createElement("LI")
+var textnode=document.createTextNode("Water")
+newItem.appendChild(textnode)
+document.querySelector('ul').insertBefore(newItem,document.querySelector('ul').firstElementChild)
+console.log(a1)
+console.log(a2)
+var a = new Number(200);
+console.log(a,a instanceof Number,a instanceof Object);
+var p = {
+    name:"留下基金",
+    getname:function(){
+        return this.name
+    }
+}
+var b = p.getname;
+console.log(b()+"123")
+</script>
+</html>

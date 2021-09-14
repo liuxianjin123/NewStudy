@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+    <script src="layui/layui.all.js"></script>
+    <link rel="stylesheet" href="layui/layuiadmin/layui-v2.3.0/layui/css/layui.css">
+</head>
+<style>
+    html,body{
+        width: 100%;
+        height:100%;
+    }
+    img{
+        width: 100%;
+        height:100%;
+    }
+</style>
+<body>
+    <img src="https://source.unsplash.com/user/erondu/1920x1080" alt="">
+    <button class="layui-btn" style="position: fixed;top:0;left:0;">调用百度网页</button>
+</body>
+<script>
+    var $ = layui.$;
+    $("button").click(function(){
+        //window.open("http://www.baidu.com/s?wd="+123456,"妈个鸡的");
+        layer.open({
+            skin: 'demo-class',
+            title:'搜一搜1',
+            type: 2,
+            area: ['80%', '80%'],
+            content: "http://www.baidu.com/s?wd="+123456 //注意，如果str是object，那么需要字符拼接。
+        });
+    });
+</script>
+</html>

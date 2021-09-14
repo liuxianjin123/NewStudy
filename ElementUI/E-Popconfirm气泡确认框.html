@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+     <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+      <script  src="Vue/vue.js"></script>
+    <script  src="element-ui/lib/index.js"></script>
+    
+
+</head>
+<style>
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    color: #333;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  html,body,#app{
+    height:100%;
+  }
+  .demo-table-expand {
+    font-size: 0;
+  }
+  .demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+  }
+  .demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+  .item {
+  margin-top: 10px;
+  margin-right: 40px;
+}
+  </style>
+<body>
+    <div id="app">
+        <el-container style="height: 100%; border: 1px solid rgb(20, 19, 19)">
+            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+              
+            </el-aside>
+            <el-container>
+              <el-header style="text-align: right; font-size: 12px">
+                <el-dropdown>
+                  <i class="el-icon-setting" style="margin-right: 15px"></i>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>查看</el-dropdown-item>
+                    <el-dropdown-item>新增</el-dropdown-item>
+                    <el-dropdown-item>删除</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+                <span>刘先近</span>
+              </el-header>
+              <el-main>
+                <template>
+                    <el-popconfirm
+                      icon="el-icon-s-goods"
+                      iconColor="green"
+                      title="这是一段内容确定删除吗？"
+                      confirmButtonText="真的"
+                      confirmButtonType="button"
+                      cancelButtonText="再想想"
+                    >
+                      <el-button slot="reference">删除</el-button>
+                    </el-popconfirm>
+                </template>
+              </el-main>
+              <el-footer>Footer</el-footer>
+            </el-container>
+          </el-container>
+    </div>
+</body>
+<script>
+  var app = new Vue({
+    el:'#app',
+    data:{
+        
+    },
+    methods:{
+        
+    },
+
+  })
+
+</script>
+</html>

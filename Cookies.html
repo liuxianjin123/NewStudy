@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>演示Cookies的用法</h1>
+    <button onclick="addCookie()">添加cookie</button>
+    <button onclick="updateCookoe()">更新cookie</button>
+    <button onclick="delCookie()">删除cookie</button>
+    <button onclick="getCookie()">获取cookie</button>
+</body>
+<script>
+    function addCookie() {
+        document.cookie = "username=刘先近;expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+        document.cookie = "username1=刘先近1;expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+        document.cookie = "username2=刘先近2;expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+        document.cookie = "username3=刘先近3;expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+    }
+    function updateCookoe(){
+        document.cookie = "username=刘先近(修改版); expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+    }
+    function delCookie(){
+        document.cookie = "username=; expires=Thu, 18 Dec 1900 12:00:00 GMT; path=/";
+    }
+    function getCookie(){
+        var x = document.cookie;
+        console.log(x.split(";"));
+    }
+</script>
+
+</html>

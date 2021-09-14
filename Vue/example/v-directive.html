@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body>
+    <h1>V-Model数据双向绑定</h1>
+    <hr>
+    <div id="app">
+        <p v-lxj="width">{{num}}</p>
+        <button @click="add">点击我试试</button>
+    </div>
+</body>
+<script>
+    Vue.directive("lxj",function(el,binding){//自定义指令。//el: 指令所绑定的元素，可以用来直接操作DOM。
+                                                        //binding: 一个对象，包含指令的很多信息。
+                                                        //vnode: Vue编译生成的虚拟节点。
+        el.style="border:"+binding.value;
+        console.log(binding);//其实这里的binding是一个对象。输入binding.name可以找到自定义指令的名称。
+        console.log(binding.name);
+    })
+    var app = new Vue({
+        el:"#app",
+        data:{
+            num:0,
+            color:'green',
+            width:'1px solid red',
+        },
+        methods:{
+            add(){
+                this.num=this>20?this.num+=4:this.num+=40
+            }
+        }
+    });
+</script>
+</html>  

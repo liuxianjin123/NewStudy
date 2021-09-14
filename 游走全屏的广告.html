@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    html,body{
+        width:100%;
+        height:100%;
+    }
+    .box{
+        position: absolute;
+        top:0;
+        left:0;
+        width:300px;
+        height:130px;
+        background: #ddd;
+        border:1px solid greenyellow;
+        transition:all 2s ease-out;
+    }
+    .box p{
+        background: greenyellow;
+        color:#fff;
+    }
+</style>
+<body>
+    <div class="box">
+        <p>欢迎你:</p>
+        <input type="datetime" value=""/>
+        <ul>
+            <input type="checkbox" text="啊啊啊啊" value="123456">
+            <li>1.爱神的箭哦啊速度快拉上来得快哈市</li>
+            <li>1.爱神的箭哦啊速度快拉上来得快哈市</li>
+            <li>1.爱神的箭哦啊速度快拉上来得快哈市</li>
+            <li>1.爱神的箭哦啊速度快拉上来得快哈市</li>
+            <li>1.爱神的箭哦啊速度快拉上来得快哈市</li>
+        </ul>
+    </div>
+</body>
+<script>
+     var dm =decodeURIComponent(location.search);
+        console.log( dm.substring(dm.indexOf("=") + 1, dm.length));
+    var timer = setInterval(function(){
+            document.querySelector(".box").style.top=parseInt(Math.random()*(document.body.offsetHeight-200))+"px";
+            document.querySelector(".box").style.left=parseInt(Math.random()*(document.body.offsetWidth-300))+"px";
+        },2000) 
+    document.querySelector(".box").onmouseover=function(){
+        clearInterval(timer);
+    }
+    document.querySelector(".box").onmouseout=function(){
+        timer=setInterval(function(){
+            document.querySelector(".box").style.top=parseInt(Math.random()*(document.body.offsetHeight-200))+"px";
+            document.querySelector(".box").style.left=parseInt(Math.random()*(document.body.offsetWidth-300))+"px";
+        },2000) 
+    }
+   var a = 1,b=2,c=3;
+   console.log(a==1?b==2?c:'false':true)
+</script>
+</html>

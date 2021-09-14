@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $(".btn").mousemove(function(e){
+            $("span").text("X坐标："+e.pageX + ", Y坐标：" + e.pageY);
+          });
+          $(".btn").mousedown(function(e){
+            $("b").text("我被鼠标按下");
+          });
+          $(".btn").mouseup(function(e){
+            $("b").text("我被鼠标抬起");
+          });
+        });
+    </script>
+    <button class='btn' style='width:600px;height: 300px;'>我是一个button</button>
+    <p>鼠标当前坐标为： <span></span></p>
+    <b></b>
+</body>
+</html>

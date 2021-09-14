@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <h1>V-on</h1>
+    <hr>
+    <ul id="uls">
+        <li><input type="text" @keyup.110="enter(this)"></li>
+         <li @dblclick="save()">{{message}}=<span v-text="message"></span>num={{num}}}</li>
+        <li v-for="(f,index) in items">{{index+1}}:{{f.xm}},{{f.age}}</li>
+    </ul>
+</body>
+<script>
+    var app =new Vue({
+        el:"#uls",
+        data:{
+            message:'这里测试的是v-text',
+            num:0,
+            items:[
+                    {xm:"刘先进",age:"17"},
+                    {xm:"张红群",age:"13"},
+                    {xm:"刘噢鞥",age:"14"},
+                    {xm:"六年级",age:"15"},
+                ],
+            dodo:'<h2>这里测试一哈v-html</h2>'
+        },
+        methods:{
+            save:function(){
+                this.num++;
+            },
+            enter:function(obj){
+                alert(obj.value);
+            }
+        }
+        
+    });
+    var f  ="asdasds234324";
+</script>
+</html>  

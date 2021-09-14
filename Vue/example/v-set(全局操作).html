@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <div id="app">
+        <h1>Vue.set(全局操作)</h1>
+        <hr>
+        <div>
+           {{count}}.{{goodName}}
+        </div> 
+        <ul>
+            <li v-for=" (f,i) in len" :index='i+1'>{{f}}</li>
+        </ul>
+        <button @click="changes">改变Vue实例中的值</button>
+        <button @click="changes1">改变Vue实例中的值</button>
+    </div> 
+</body>
+<script>
+   var outData={
+        count:1,
+        goodName:'car',
+        len:['aaa','sss','ddd']
+   }
+   var app = new Vue({
+       el:'#app',
+       data:outData,
+       methods:{
+           changes(){
+                Vue.set(outData,'count',45);
+                //lock();
+           },
+           changes1(){
+                    app.count++;
+                    app.len[0]='gggg'
+                //lock();
+           }
+       }
+   });
+   function lock(){
+       console.log(outData.count);
+       app.count++;
+       app.goodName="我已经被改变，但是Vue会渲染我吗？";
+       app.len[0]="ggg";
+   }
+</script>
+</html>  

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        width:500px;
+        height:500px;
+        border:1px solid red;
+    }
+</style>
+<body id="">
+    <select name="" id="slt"></select>
+</body>
+<script>
+    window.onload = function(){
+        var html=`
+            <option>苹果</option>
+            <option>香蕉</option>
+            <option>荔枝</option>
+            <option>花生</option>
+            <option>菠萝</option>
+            <option>丝瓜</option>
+            <option>苹果</option>
+        `;
+        document.body.onclick=function(){
+            document.querySelector("#slt").innerHTML=html;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html,body{
+        height: 100%;
+    }
+    *{
+        margin: 0;
+        padding:0;
+    }
+    div{
+        height: 500px;
+        font-size: 150px;
+        text-align: center;
+        line-height: 500px;
+        color:#fff;
+    }
+    
+</style>
+<body>
+    <div id='box1' style="background: red;">1</div>
+    <div id='box2' style="background: yellow;">2</div>
+    <div id='box3' style="background: blue;">3</div>
+    <div id='box4' style="background: green;">4</div>
+    <div id='box5' style="background: pink;">5</div>
+    <div id='box6' style="background: rgba(14, 55, 238, 0.616);">6</div>
+    <div id='box7' style="background: #1e9fff;">7</div>
+</body>
+<script>
+    var io = new IntersectionObserver(entries => {
+        console.log(entries[0].boundingClientRect.top)
+        console.log(document.body.clientHeight)
+        if(entries[0].boundingClientRect.top==(document.body.clientHeight/2)){
+            document.getElementById('box5').style.background="red";
+        }
+    }, {});
+        // 开始观察
+    io.observe(document.getElementById('box5'));
+
+    // 停止观察
+    //io.unobserve(element);
+
+    // 关闭观察器
+    //io.disconnect();
+</script>
+</html>

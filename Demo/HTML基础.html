@@ -1,0 +1,162 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{user-select: none;}
+    table{
+        border-collapse: collapse;
+        width:210px;
+        height:240px;
+    }
+    body{
+        padding-bottom:150px;
+    }
+</style>
+<body>
+    块级元素
+    <hr>
+    <div>我是一个div</div>
+    <dl>
+        <dt>我是dl中的dt-1</dt>
+        <dd>我是dl中的dd-2</dd>
+        <dd>我是dl中的dd-3</dd>
+        <dd>我是dl中的dd-4</dd>
+        <dd>我是dl中的dd-5</dd>
+        <dt>我是dl中的dt-2</dt>
+        <dd>我是dl中的dd-6</dd>
+        <dd>我是dl中的dd-7</dd>
+        <dd>我是dl中的dd-8</dd>
+        <dd>我是dl中的dd-9</dd>
+    </dl>
+    <fieldset>
+        <legend >我是一个框架集</legend>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis dignissimos quibusdam nihil, est sint excepturi dolorum. Temporibus dolorum nisi, veritatis maxime autem veniam porro incidunt similique atque itaque sint voluptates!</p>
+    </fieldset>  
+    <form>
+        <label for="" style="display:block">用户名：<input type="text" placeholder="请输入用户名"></label>
+        <label for="">用户密码：<input type="password" placeholder="请输入密码"></label>
+    </form>   
+    <header>我是表示页面的头部内容</header> 
+    <section>我是表示页面的主体内容</section>
+    <footer>我是表示页面的底部内容</footer>
+    <aside>我表示的是页面的侧边栏</aside>
+    <menu>我表示的是页面的菜单栏</menu>
+    <nav>我表示的是页面的导航部分</nav>
+    <audio>音频</audio>
+    <video></video>
+    <h1>我是最大的标题</h1>
+    <h2>我是副标题</h2>
+    <h3>我是H3标题</h3>
+    <h4>我是H4标题</h4>
+    <h5>我是H5标题</h5>
+    <h6>我是最小的标题</h6>
+    <h7>没有h7及以下的标题。如果写chrome默认显示16px</h7>
+    <hr>
+    <ol type="1">
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ol>
+    <ol type="A">
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ol>
+    <ol type="a">
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ol>
+    <ol type="I">
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ol>
+    <ol type="i">
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ol>
+    <ul>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+        <li>我是有序列表</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ipsum doloremque ducimus eveniet adipisci, harum officia deleniti tempore impedit ea. Similique soluta obcaecati repudiandae quaerat error illo nemo deserunt eius?</p>
+    <table border=1>
+        <caption>我主要是用来定义表格的标题</caption>
+        <thead>
+            <tr>
+                <th colspan="3">我是表头</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="2" style="background:red;">1</th>
+                <th colspan="2" style="background:yellow;">1</th>
+            </tr>
+            <tr>
+                <td style="background:purple;">5</td>
+                <td rowspan="2" style="background:green;">6</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background:pink;">6</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">我是表头</th>
+            </tr>
+        </tfoot>
+    </table>
+    <p>行内元素</p> 
+    <hr>
+    <a href="http://www.baidu.com">我是a标签(百度一下，你就知道)</a>
+    <span>我是span我包含了一段普通的文本</span>
+    <b>我是b标签，我主要是具有加粗的效果</b> 
+    <i>我是斜体i标签</i> 
+    <img src="img/3.gif" alt="我是img" title="我是img"><br>
+    <label for="">我是普通的文本框<input type="text" value="我是普通的文本框"></label> <br>
+    <label for="">我是密码框<input type="password" value="我是密码框"></label> <br>
+    <label for="">我是年月日(满足不了开发需要)<input type="date" value="我是时间"></label> <br>
+    <label for="">我是十分<input type="time" value="我是时间日期"></label> <br>
+    <label for="">我是密码框<input type="number" value="12"></label><br>
+    <label>我是复选框<input type="checkbox" name='ck'></label><br>
+    <label for="rd">我是密码框1<input type="radio" name="rd" id="rd" value="12"></label>
+    <label for="rd1">我是密码框2<input type="radio" name="rd" id="rd1" value="12"></label>
+    <label for="rd2">我是密码框3<input type="radio" name="rd" id="rd2" value="12"></label>
+    <label for="rd3">我是密码框4<input type="radio" name="rd" id="rd3" value="12"></label>
+    <label>上传文件<input type="file"></label>
+    <select name="" id="">
+        <option value="">请选择</option>
+        <option value="1">鱼香茄子</option>
+        <option value="2">青椒肉丝</option>
+        <option value="3">蚂蚁上树</option>
+        <option value="4">红烧茄子</option>
+        <option value="5">牛逼轰轰</option>
+    </select>
+    <select name="" id="">
+        <option value="">请选择</option>
+        <option value="1">鱼香茄子</option>
+        <option value="2">青椒肉丝</option>
+        <option value="3">蚂蚁上树</option>
+        <option value="4">红烧茄子</option>
+        <option value="5">牛逼轰轰</option>
+    </select>
+    <textarea>
+        多行文本输入框
+    </textarea>
+    <button>我是一个普通的按钮1</button>
+    <button>我是一个普通的按钮2</button>
+    <del>我表示已经被删除</del>
+    <sub>我是一个下标</sub>
+    <sup>我是一个上标</sup>
+    &lt;我&nbsp;已&nbsp;被&nbsp;包&nbsp;围&gt;
+    <iframe src="http://www.baidu.com" frameborder="0"></iframe>
+<script type="text/javascript">
+</script>
+</body>
+</html>

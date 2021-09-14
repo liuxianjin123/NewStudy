@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <h1>V-Model数据双向绑定</h1>
+    <hr>
+    <ul id="uls">
+        <li>数据双向绑定<input type="text"v-model.lazy="message"></li>
+        <li>数据双向绑定<input type="text"v-model.number="message"></li>
+        <li>数据双向绑定<input type="text"v-model.trim="message"></li>
+        <li>数据双向绑定<input type="checkbox" v-model="istrue" id="istrue" value="多炫酷">{{istrue}}</li>
+        <!--lazy:懒加载：鼠标离开文本框才会双向绑定。-->
+        <!--number:只绑定数字：文本框可以输入，但是同步时会去除出数字之外的字符串。-->
+        <!--trim:去除空格，多个空格会保留一个-->
+
+        <li>
+            <label for="1"><input type="checkbox"  value="爸爸"  v-model="names">爸爸</label>
+            <label for="2"><input type="checkbox"  value="妈妈"  v-model="names">妈妈</label>
+            <label for="3"><input type="checkbox"  value="爷爷"  v-model="names">爷爷</label>
+        </li>
+        <li>
+            <label for="11"><input type="radio"value="爸爸"  v-model="names1">爸爸</label>
+            <label for="22"><input type="radio"  value="妈妈"  v-model="names1">妈妈</label>
+            <label for="33"><input type="radio" value="爷爷"  v-model="names1">爷爷</label>
+        </li>
+        <li><p>{{names}}[{{names1}}]</p></li>
+    </ul>
+</body>
+<script>
+    var app =new Vue({
+        el:"#uls",
+        data:{
+            message:'',
+            istrue:true,
+            names:[],
+            names1:[]
+        },
+        methods:{
+            save:function(){
+                this.num++;
+            },
+            enter:function(obj){
+                alert(obj.value);
+            },
+        }
+        
+    });
+</script>
+</html>  

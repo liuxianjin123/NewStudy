@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+    .c{
+        border-radius: 20px;
+    }
+    .b{
+        border-color: green;
+    }
+</style>
+<body>
+    <h1>V-Model数据双向绑定</h1>
+    <hr>
+    <div id="app">
+        <img src="http://baidu.com/wp-content/uploads/2017/02/vue01-2.jpg" :style="styles" :class="[c,b]" width="200px">
+    </div>
+</body>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            imgSrc:'http://baidu.com/wp-content/uploads/2017/02/vue01-2.jpg',
+            styles:{border:"1px solid red",width:"120px",height:"250px"},
+            c:{
+                "border-radius": "20px"
+            },
+            b:{
+                "border-color": "green"
+            },
+        }
+    })
+</script>
+</html>  

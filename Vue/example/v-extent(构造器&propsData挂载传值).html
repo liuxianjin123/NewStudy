@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<style>
+   
+</style>
+<body >
+    <div id="app">
+        <h1>Vue.extent(构造器)</h1>
+    <hr>
+    <div>
+         <p id="s1"></p>
+    </div>
+   
+    <author></author>  
+</body>
+<script>
+    var authorExtend = Vue.extend({
+        template:"<span><a :href='authorUrl'>{{authorName}}----{{s}}</a></span>",
+        data:function(){
+            return {
+                authorName:name(),
+                authorUrl:'http://www.baidu.com',
+            }
+        },
+        props:['s']
+    });
+    function name(){
+        return "my name is Liuxianjin"
+    }
+    new authorExtend({propsData:{s:'我是在挂载时传入的值'}}).$mount('author');
+    new authorExtend().$mount(document.querySelector('#s1'));//实例化authorExtend并将其挂载在元素上。并且#s1会被替换。
+</script>
+</html>  

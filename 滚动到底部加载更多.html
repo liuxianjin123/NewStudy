@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/jquery-1.11.1.min.js'></script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<style>
+    .layui-main{
+        border:1px solid #ddd;
+        height: 600px;
+        overflow: auto;
+        transition: all 1.3s;
+    }
+    tr{
+        height: 100px;
+    }
+</style>
+<body>
+    <blockquote class="layui-elem-quote">滚动到底部加载更多</blockquote>
+    <div class='layui-main'>
+        <table class="layui-table">
+            <colgroup>
+              <col width="150">
+              <col width="200">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>昵称</th>
+                <th>加入时间</th>
+                <th>签名</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr>
+                <td>贤心</td>
+                <td>2016-11-29</td>
+                <td>人生就像是一场修行</td>
+              </tr>
+              <tr>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              </tr>
+              <tr>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              </tr>
+              <tr>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              </tr>
+              <tr>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              </tr>
+              <tr>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+<script>
+    $(".layui-main").scroll(function(){
+       
+        if(($(this).scrollTop()+$(this).height())==this.scrollHeight){
+            $(this).width(1500)
+            $(".layui-table").append(`
+                <tr style="background:${bgColor()};color:#fff;">
+                    <td>我是追加的内呢</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+                <tr style="background:${bgColor()};color:#fff;">
+                    <td>我是追加的内呢</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+                <tr style="background:${bgColor()};color:#fff;">
+                    <td>我是追加的内呢</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+                <tr style="background:${bgColor()};color:#fff;">
+                    <td>我是追加的内呢</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+                <tr style="background:${bgColor()};color:#fff;">
+                    <td>我是追加的内呢</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+            `)
+        }
+        if($(this).scrollTop()==0){
+            $(this).width(1000)
+        }
+    });
+    function bgColor(){
+    var rgb = 'rgb('+parseInt(Math.random()*255)+','
+                +parseInt(Math.random()*255)+','
+                +parseInt(Math.random()*255)+')';
+    return rgb;
+}
+</script>
+</html>

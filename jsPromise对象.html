@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script> 
+    let p = new Promise((resolve, reject) => {
+        if(parseInt(Math.random()*10)<=5){
+            resolve("数字小于五");
+        }else{
+            reject("数字大于五");
+        }
+    });
+    p.then((data)=>{
+        console.log('resolved',data);
+    }),((err)=>{
+        console.log('rejected',err);
+    });
+    var f = '123456456';
+    if(f.indexOf(3) > '-1')
+    console.log('你牛逼');
+    function num(n){
+        if(n==1) return 1;
+        return num(n-1)+n;
+    }
+   console.log(num(10));
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <h1>V-Text&v-Html</h1>
+    <hr>
+    <ul id="uls">
+         <li>{{message}}=<span v-text="message"></span></li>
+        <li v-for="(f,index) in sortStudent">{{index+1}}:{{f.xm}},{{f.age}}</li>
+        <p v-html="dodo"></p><!--v-html：感觉像是模板字符串呢？-->
+    </ul>
+
+</body>
+<script>
+    var app =new Vue({
+        el:"#uls",
+        data:{
+            message:'这里测试的是v-text',
+            items:[
+                    {xm:"刘先进",age:"17"},
+                    {xm:"张红群",age:"13"},
+                    {xm:"刘噢鞥",age:"14"},
+                    {xm:"六年级",age:"15"},
+                ],
+                dodo:'<h2>这里测试一哈v-html</h2>'
+        },
+        computed:{
+            sortStudent:function(){
+                return sortByKey(this.items,'age');
+            }
+        }
+    });
+    //数组对象方法排序:
+    function sortByKey(array,key){
+        return array.sort(function(a,b){
+            var x=a[key];
+            var y=b[key];
+            return ((x<y)?-1:((x>y)?1:0));
+        });
+    }
+
+</script>
+</html>  

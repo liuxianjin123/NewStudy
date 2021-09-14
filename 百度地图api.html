@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+<script>
+    console.log("测试git的提交")
+    $.ajax({
+            url: "https://api.map.baidu.com/location/ip?ak=OQTzUhMIG58MZESIGA5HicT8DG7I5bq0&ip=192.168.1.108&coor=bd09ll",
+            type:"post",
+            async: false,
+            dataType: "JSON",
+            success: function (data) {
+                console.log(data);
+                $("div").html(data);
+            }
+    });
+</script>
+</html>
+
+

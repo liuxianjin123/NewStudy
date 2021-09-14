@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%;width: 700px;margin:0 auto"></div>
+    <button onclick="windowprint()" style="position: absolute;top:0">window.print</button>
+    <button onclick="printJs()" style="position: absolute;top:0;left: 150px;">printJs</button>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="wonderland.js"></script>
+    <link rel="stylesheet" href="print.min.css">
+    <script src='print.min.js'></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom, 'westeros', { renderer: 'svg' });//{devicePixelRatio: 2.5}
+        var app = {};
+        option = null;
+        option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Sun', 'Sun', 'Sun'],
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: ['#000'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#000',  //更改坐标轴文字颜色
+                        fontSize: 14      //更改坐标轴文字大小
+                    }
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#000'
+                    }
+                },
+            },
+            yAxis: {
+                type: 'value',
+                min: 0,//刻度尺最小单位。
+                max: 3000,//刻度尺最大单位。
+                interval: 150,//强制分割单位。
+                triggerEvent: true,
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: ['#000'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#000',  //更改坐标轴文字颜色
+                        fontSize: 14      //更改坐标轴文字大小
+                    }
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#000'
+                    }
+                },
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320, 1320, 1320, 1320],
+                type: 'line',
+                smooth: false,
+                symbolSize: 0,   //设定实心点的大小
+                itemStyle: {
+                    normal: {
+                        color: '#000',
+                        lineStyle: {
+                            width: '1'
+                        }
+                    }
+                },
+            }]
+        };
+        ;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+
+        function windowprint() {
+            print()
+        }
+        function printJs() {
+            printJS({
+                printable: 'container',//被打印元素的ID
+                type: 'html',//打印类型
+                scanStyles: false,//不需要打印Css样式
+                //ignoreElements:['']//不需要打印元素的ID
+            });
+        }
+    </script>
+</body>
+
+</html>

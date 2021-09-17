@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="js/jquery-1.11.1.min.js"></script>
+<body>
+    <div></div>
+</body>
+<script>
+var datas = [
+    { id: 1, name: "办公管理", pid: 0,children:
+        {
+            id:1-1, name: "办公管理-1", pid: 1,children:
+            {
+                id:1-1-1, name: "办公管理-1-1", pid: 0-1-1,children:
+                {
+                    id:'1-1-1-1', name: "办公管理-1-1-1", pid: '0-1-1-1',  
+                }    
+            }  
+        } 
+    },
+    { id: 2, name: "请假记录", pid: 2, },
+    { id: 3, name: "权限管理", pid: 3, 
+        children:
+        {
+            id:3-1, name: "权限管理-1", pid: 0-2
+        } 
+    },
+];
+function toTree(data) {
+    for(var i of data){
+        gg(i)
+    };
+}
+function gg(msg){
+    msg.title="刘现金Object"
+    if(msg.children){
+        gg(msg.children)
+    }
+}
+toTree(datas)
+console.log(datas)
+</script>
+</html>

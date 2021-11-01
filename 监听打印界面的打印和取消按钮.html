@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p onclick="window.print()">
+      LSsam3gOVuDXciRtkGXKwJWaMvAYgkrCWtaOJtJ8ZzJ2d0Tu5lfJ
+    </p>
+  </body>
+  <script>
+    var beforePrint = function () {
+      console.log("beforePrint");
+    };
+
+    var afterPrint = function () {
+      console.log("afterPrint");
+    };
+
+    if (window.matchMedia) {
+      //返回一个新的 MediaQueryList 对象，表示指定的媒体查询字符串解析后的结果。
+      var mediaQueryList = window.matchMedia("print");
+      mediaQueryList.addListener(function (mql) {
+        if (mql.matches) {
+          beforePrint();
+        } else {
+          afterPrint();
+        }
+      });
+    }
+
+    window.onbeforeprint = beforePrint;
+    window.onafterprint = afterPrint;
+  </script>
+</html>

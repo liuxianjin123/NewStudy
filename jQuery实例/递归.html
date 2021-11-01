@@ -19,6 +19,16 @@ function fact(num){
         
     } 
 } 
+let num=0;
+function leijia(a){
+    num+=a;
+    a--;
+    if(a>0){
+        leijia(a); 
+    }
+}
+leijia(10);
+console.log(num+"递归")
 var anotherFact = fact;  
 fact = null; 
 alert(anotherFact(4)); //结果为24. 

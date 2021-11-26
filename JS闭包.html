@@ -16,8 +16,8 @@
 <script>
     
     document.body.onclick=function(){
-        checkscope()();
-        console.log(un())
+        checkscope();
+        console.log(un)
     }
     // function f1(){
     //     var n = 123;
@@ -39,7 +39,7 @@
         function f(){
             console.log(scope);
         }
-        return f;
+        return f();
     }
     var un = (function(){
         var cont=0;

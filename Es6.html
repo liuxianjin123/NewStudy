@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //ES6的解构赋值
+    const obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: 4,
+      e: 5,
+    };
+    const { a, b: nb, c, d, e } = obj || {};
+    console.log(a, nb, c, d, e);
+    //如合并两个数组，
+    const a1 = [1, 2, 3];
+    const b = [1, 5, 6];
+    const c1 = [...new Set([...a1, ...b])]; //[1,2,3,5,6]
+    console.log(c1);
+    //合并两个对象
+    const obj1 = {
+      a: 1,
+      b: 2,
+    };
+    const obj2 = {
+      b: 1,
+    };
+    const obj4 = { ...obj1, ...obj2 }; //{a:1,b:1}
+    console.log(obj4);
+    //关于拼接字符串的吐槽
+    const name = "小明";
+    const score = 59;
+    const result = `${name}${
+      score > 60 ? "的考试成绩及格" : "的考试成绩不及格"
+    }`;
+    console.log(result);
+    //关于列表搜索的吐槽
+    const ad = [{name:1},{name:2},{name:3},{name:4}, {name:5}];
+    const result1 = ad.filter((item,index) => {
+      console.log(index)
+      return item.name=== 3;
+    });
+    console.log(result1)
+    //扁平化数组的吐槽
+    const deps = {
+    name:[1,2,3],
+    '人事部':[5,8,12],
+    '行政部':[5,14,79],
+    '运输部':[3,64,105],
+    }
+    let member =Object.values(deps).flat(Infinity);
+    let keys = Object.keys(deps);
+    let ary = [1, [2, [3, [4, 5]]], 6];
+    console.log(ary.flat(Infinity))
+    console.log(member,keys);
+    console.log(deps?.name)
+  </script>
+</html>

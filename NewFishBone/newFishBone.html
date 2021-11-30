@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html,
+    body,
+    body .content {
+        height: 100%;
+    }
+    
+</style>
+
+<body>
+    <div class="content">
+        <canvas id="canvas" style="background-color: #FFF;"></canvas>
+    </div>
+</body>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="jtopo.js"></script>
+<script src="toolbar.js"></script>
+<script src="MakFishBone.js"></script>
+<script>
+    let testFishData = {
+        "id": 1697,
+        "name": "通用",
+        "children": [{
+            "id": 1698,
+            "name": "护士",
+            "children": [{
+                "id": 1699,
+                "name": "工作繁忙",
+                "children": []
+            }, {
+                "id": 1700,
+                "name": "夜间轮值，护士疲乏",
+                "children": []
+            }, {
+                "id": 1701,
+                "name": "宣教不足",
+                "children": []
+            }, {
+                "id": 1710,
+                "name": "方法不当",
+                "children": []
+            }, {
+                "id": 1714,
+                "name": "核查不严",
+                "children": []
+            }, {
+                "id": 1716,
+                "name": "意识不足",
+                "children": []
+            }, {
+                "id": 1719,
+                "name": "经验不足",
+                "children": []
+            }]
+        }, {
+            "id": 1730,
+            "name": "患者",
+            "children": [{
+                "id": 1731,
+                "name": "患者擅自离院，导致意外发生",
+                "children": []
+            }, {
+                "id": 1732,
+                "name": "病人对治疗失去信心",
+                "children": []
+            }, {
+                "id": 1733,
+                "name": "病人外出",
+                "children": []
+            }, {
+                "id": 1734,
+                "name": "压力过重",
+                "children": []
+            }, {
+                "id": 1735,
+                "name": "病人反应迟钝",
+                "children": []
+            }, {
+                "id": 1736,
+                "name": "自身疾病原因",
+                "children": []
+            }, {
+                "id": 1740,
+                "name": "患者体质问题",
+                "children": []
+            }, {
+                "id": 1743,
+                "name": "依从性差",
+                "children": []
+            }, {
+                "id": 1746,
+                "name": "理解能力差",
+                "children": []
+            }]
+        }, {
+            "id": 1751,
+            "name": "家属",
+            "children": [{
+                "id": 1752,
+                "name": "患者家属间未做好交接",
+                "children": []
+            }, {
+                "id": 1753,
+                "name": "不重视",
+                "children": []
+            }]
+        }, {
+            "id": 1758,
+            "name": "机",
+            "children": [{
+                "id": 1759,
+                "name": "设备异常",
+                "children": []
+            }, {
+                "id": 1760,
+                "name": "信息系统异常",
+                "children": []
+            }]
+        }]
+    }
+    $(function () {
+        windowResize();
+    });
+    function windowResize() {
+        $("#canvas").css({ width: $("body").width(), height: $("body").height() });
+        let mfb = new MakFishBone(document.getElementById("canvas"), { data: testFishData });
+        mfb.start();
+    }
+</script>
+
+</html>

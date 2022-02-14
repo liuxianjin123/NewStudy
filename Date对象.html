@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Docu111ment</title>
 </head>
 <body>
   
@@ -13,7 +13,9 @@
   let sj = new Date();
   console.log(new Date().toISOString().substr(0,10)+" "+new Date().toTimeString().substring(0,8))
   let obj1 = {a:1,b:2,c:3};
-  let obj2 = {b:4,c:5,d:6};
-  console.log(Object.assign(obj1,obj2))
+  let obj2 = {b:4,c:511,d:6};
+  console.log(Object.assign(obj2,obj1 ))
+  let newObj = {name:1,age:2,height:{item1:{m:3},items:4}};
+  console.log(Object.values(newObj))
 </script>
 </html>

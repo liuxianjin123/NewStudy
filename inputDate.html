@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Author: liuXianJin
+ * @Date: 2022-02-17 09:44:31
+ * @LastEditTime: 2022-02-24 16:31:56
+ * @LastEditors: liuXianJin
+ * @Reference: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span
+      >时间<label for=""><input type="datetime-local" max="2099-01-01T00:00"  value="2099-01-01T00:00" onblur="blurs(event)"/> </label
+    ></span>
+    <span
+      >时间<label for=""><input type="date" max="2099-01-01"  value="2099-01-01" onblur="blurs(event)"/> </label
+    ></span>
+    <script>
+      function blurs(e){
+        console.log(document.getElementsByTagName("input")[0].value.replace("T"," "));
+      }
+    </script>
+  </body>
+  <style>
+    input {
+      border: 1px solid forestgreen;
+      border-radius: 4px;
+      padding: 7px;
+    }
+    ::-webkit-datetime-edit-year-field {
+      color: purple;
+    }
+    ::-webkit-datetime-edit-month-field {
+      color: blue;
+    }
+    ::-webkit-datetime-edit-day-field {
+      color: green;
+    }
+    ::-webkit-calendar-picker-indicator {
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      box-shadow: inset 0 1px #fff, 0 1px #eee;
+      background-color: #eee;
+      background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+      color: #666;
+      display: none;
+    }
+  </style>
+</html>

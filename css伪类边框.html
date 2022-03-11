@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+    <p>a撒旦阿什顿阿什顿爱上大声道爱上，没得吗，阿萨德了卡死</p>
+</body>
+<script>
+    var reg = /root/i;
+    var str = 'im r2oot';
+    console.log(str.search(reg));
+    console.log(str.substr(1, 5))
+    console.log(str.substring(1, 5))
+    function d(d = 9, c = 3) {
+        console.log(d, c);
+        if (d) {
+            if (c = 3) {
+                return { name: 888, age: 9999 };
+            }
+            return { name: 99999999, height: 1 }
+        }
+    }
+    console.log(d(100, 999));
+</script>
+<style>
+    p {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding: 10px;
+        width: 510px;
+        border: 2px solid greenyellow;
+        margin-left: 200px;
+    }
+
+    p:before {
+        display: inline-block;
+        content: "";
+        width: 0px;
+        border-top: 10px solid red;
+        transition: 0.5s;
+        position: absolute;
+        left: 50%;
+        top: -10px;
+    }
+
+    p:hover:before {
+        width: 100%;
+        left: 50%;
+        margin-left: -50%;
+        transition: 0.5s;
+    }
+
+    p:after {
+        display: inline-block;
+        content: "";
+        width: 0px;
+        border-top: 2px solid red;
+        transition: 0.2s;
+        position: absolute;
+        right: 50%;
+        top: 40px;
+    }
+
+    p:hover:after {
+        width: 100%;
+        right: 50%; 
+        margin-right: -50%;
+        transition: 0.2s;
+    }
+</style>
+
+</html>
